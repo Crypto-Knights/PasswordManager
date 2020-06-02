@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/components/FormComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/pages/Signup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,11 +58,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1590568480792</updated>
-      <workItem from="1590568485238" duration="3711000" />
+      <workItem from="1590568485238" duration="3920000" />
+      <workItem from="1590994109478" duration="2968000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1271" y="-708" key="com.intellij.ide.util.TipDialog" timestamp="1591082360449">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state x="1271" y="-708" key="com.intellij.ide.util.TipDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591082360449" />
+    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup" timestamp="1591083757077">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591083757077" />
   </component>
 </project>
