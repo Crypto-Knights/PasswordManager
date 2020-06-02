@@ -10,7 +10,8 @@ class Signup extends React.Component {
             lastName: "",
             email: "",
             password: "",
-            securityQuestion: []
+            answerOne: "",
+            questionOne: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleChange = this.handleChange.bind(this)
@@ -23,17 +24,19 @@ class Signup extends React.Component {
         })
     }
 
-    handleSubmit(userObj) {
-
+    handleSubmit = () => {
+        console.log(this.state)
     }
 
     render() {
         return (
-            <FormComponent
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                {...this.state}
-            />
+            <div>
+                <FormComponent
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    {...this.state}
+                />
+            </div>
         )
     }
 }
