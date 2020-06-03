@@ -28,7 +28,7 @@ function FormComponent(props) {
                 <Header as="h2" textAlign="center">
                     Register your account
                 </Header>
-            <Form onSubmit={props.handleSubmit}>
+            <Form onSubmit={props.handleSubmit} id="createUserInput">
                 <Form.Field width={16}>
                     <label>First Name</label>
                     <input
