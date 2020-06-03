@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/api/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/db.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/user/createUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/api/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/FormComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/FormComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Test2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/.env.default" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -40,6 +41,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -64,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
-      <workItem from="1590994109478" duration="18146000" />
+      <workItem from="1590994109478" duration="20096000" />
     </task>
     <servers />
   </component>
@@ -72,10 +74,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591155858874">
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591226443685">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591155858874" />
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591226443685" />
+    <state width="1166" height="370" key="GridCell.Tab.0.bottom" timestamp="1591225760527">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state width="1166" height="370" key="GridCell.Tab.0.bottom/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591225760527" />
+    <state width="1166" height="370" key="GridCell.Tab.0.center" timestamp="1591225760525">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state width="1166" height="370" key="GridCell.Tab.0.center/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591225760525" />
+    <state width="1166" height="370" key="GridCell.Tab.0.left" timestamp="1591225760524">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state width="1166" height="370" key="GridCell.Tab.0.left/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591225760524" />
+    <state width="1166" height="370" key="GridCell.Tab.0.right" timestamp="1591225760526">
+      <screen x="298" y="-1080" width="2560" height="1080" />
+    </state>
+    <state width="1166" height="370" key="GridCell.Tab.0.right/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591225760526" />
     <state x="660" y="-822" key="RollbackChangesDialog" timestamp="1591173915329">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
