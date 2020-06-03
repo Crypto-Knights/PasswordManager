@@ -1,6 +1,5 @@
 import React from "react"
 import FormComponent from "../components/FormComponent";
-import {Button, Checkbox, Form} from "semantic-ui-react";
 import createUser from "../api/user/createUser";
 
 

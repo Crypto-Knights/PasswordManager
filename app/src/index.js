@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, HashRouter as Router, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import Signup from "./pages/Signup";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Signup />
+      <Router>
+          <Switch>
+              <Navbar/>
+              <Route path="/" component={Login}/>
+              <Route path="/Signup" component={Signup}/>
+          </Switch>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
