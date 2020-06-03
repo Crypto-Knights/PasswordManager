@@ -52,7 +52,7 @@ function FormComponent(props) {
                 <Form.Field width={16}>
                     <label>Email</label>
                     <input
-                        placeholder='Last Name'
+                        placeholder='Someone@domain.com'
                         value={props.email}
                         name="email"
                         onChange={props.handleChange}
@@ -62,7 +62,7 @@ function FormComponent(props) {
                 <Form.Field width={16}>
                     <label>Password</label>
                     <input
-                        placeholder='Last Name'
+                        placeholder='Password'
                         value={props.password}
                         name="password"
                         onChange={props.handleChange}

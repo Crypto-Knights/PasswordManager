@@ -2,6 +2,8 @@ import React from "react"
 import FormComponent from "../components/FormComponent";
 import {Button, Checkbox, Form} from "semantic-ui-react";
 
+
+
 class Signup extends React.Component {
     constructor() {
         super();
