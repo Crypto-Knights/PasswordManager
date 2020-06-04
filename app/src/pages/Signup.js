@@ -1,6 +1,7 @@
 import React from "react"
 import FormComponent from "../components/FormComponent";
 import createUser from "../api/user/createUser";
+import Navbar from "../components/Navbar";
 
 
 class Signup extends React.Component {
@@ -33,6 +34,7 @@ class Signup extends React.Component {
     render() {
         return (
             <div>
+                <Navbar/>
                 <FormComponent
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
