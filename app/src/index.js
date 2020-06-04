@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
           <Switch>
               <Route exact path="/" component={Login}/>
               <Route path="/Signup" component={Signup}/>
+              <Route path="/Profile" component={Profile}/>
           </Switch>
       </Router>
   </React.StrictMode>,

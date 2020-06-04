@@ -17,6 +17,10 @@ function Navbar() {
                 <Button primary>Sign up</Button>
             </Menu.Item>
 
+            <Menu.Item as={NavLink} exact to="/Profile">
+                <Button primary>Profile</Button>
+            </Menu.Item>
+
         </Menu>
     )
 }

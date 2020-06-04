@@ -9,3 +9,55 @@
     opacity: 0.9 !important;
 
 }
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+html, body {
+  margin:0;
+  height:100%;
+}
+
+.generator {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  margin:0;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin-right:50%;
+  transform:translate(-50%, -50%);
+}
+
+.generator-pass {
+  font-family:"Roboto";
+  letter-spacing:5px;
+  max-width:90vw;
+  text-align:center;
+  display:block;
+  margin-left:auto;
+  word-wrap:break-word;
+  margin-right:auto;
+  transition:.4s;
+}
+
+.generator-pass:hover {
+  color:rgba(0, 0, 0, .75);
+}
+
+.generator-strong {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+.generator-strong > label {
+  display:flex;
+}
+
+.generator-strong > label > * {
+  margin-right:5px;
+  margin-left:5px;
+}
