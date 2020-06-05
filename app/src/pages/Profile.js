@@ -1,6 +1,17 @@
 import React from "react"
 import Navbar from "../components/Navbar";
-
+import ProfileComponent from '../components/ProfileComponent';
+import {
+  Button,
+  Divider,
+  Form,
+  Grid,
+  Message,
+  MessageHeader,
+  MessageItem,
+  MessageList,
+  Segment
+} from 'semantic-ui-react'
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -34,22 +45,49 @@ class Profile extends React.Component {
 
   render() {
     return (
-        <div className="generator">
-          <h1 className="generator-pass">{ this.state.password.data }</h1>
-          <div className="generator-strong">
-            <label>
-              <input
-                  type="range"
-                  min="6"
-                  max="16"
-                  defaultValue={ this.state.password.length }
-                  onChange={ e => this.setLength(e.target) }
-              />
-              { this.state.password.length }
-            </label>
-          </div>
-        </div>
-    );
+    <div>
+      <Navbar/>
+      <Segment placeholder>
+        <Grid columns={2} relaxed='very' stackable>
+          <Grid.Column>
+            <ProfileComponent
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                {...this.state}
+            />
+          </Grid.Column>
+
+          <Grid.Column verticalAlign='middle'>
+            <div className="generator">
+              <h1 className="generator-pass">{ this.state.password.data }</h1>
+              <div className="generator-strong">
+                <label>
+                  <input
+                      type="range"
+                      min="6"
+                      max="16"
+                      defaultValue={ this.state.password.length }
+                      onChange={ e => this.setLength(e.target) }
+                  />
+                  { this.state.password.length }
+                </label>
+              </div>
+              <Message size="tiny">
+                <MessageHeader>Password Generator</MessageHeader>
+                <MessageList>
+                  <MessageItem>
+                    Slide bar for 6 to 16 characters in length
+                  </MessageItem>
+                </MessageList>
+              </Message>
+            </div>
+          </Grid.Column>
+        </Grid>
+
+        <Divider vertical> </Divider>
+      </Segment>
+    </div>
+  );
   }
 }
 
