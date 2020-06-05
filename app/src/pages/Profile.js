@@ -17,25 +17,25 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
-      password: { length: 15, data: "" }
+      password: { length: 11, data: "" }
     }
   }
 
   componentDidMount() {
-    this.buildPassword();
+    this.createPassword();
   }
 
   setLength = ({ value }) => {
     this.setState(({ progress, password }) => ({
       password: { ...password, length: value }
-    }), () => this.buildPassword());
+    }), () => this.createPassword());
   }
 
-  buildPassword = () => {
+  createPassword = () => {
     let a = "",
         b = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*(),.?ABCDEFGHIJKLMNOPQRSTUVWXYZ",
         c = this.state.password.length;
-    for(let ma = 0; ma < c; ma++) {
+    for(let x = 0; x < c; x++) {
       a += b[Math.floor(Math.random() * b.length)];
     }
     this.setState(state => ({
@@ -71,6 +71,7 @@ class Profile extends React.Component {
                   />
                   { this.state.password.length }
                 </label>
+
               </div>
               <Message size="tiny">
                 <MessageHeader>Password Generator</MessageHeader>
