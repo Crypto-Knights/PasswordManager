@@ -23,13 +23,13 @@ function ProfileComponent(props) {
                   label='Username'
                   placeholder='Username'
               />
+
               <Form.Input
                   icon='lock'
                   iconPosition='left'
-                  value={props.password}
-                  onChange={props.handleChange}
                   label='Password'
                   type='password'
+                  placeholder="*********"
               />
 
               <Button content='Save' primary />
