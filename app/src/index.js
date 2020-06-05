@@ -4,7 +4,10 @@ import { Route, HashRouter as Router, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
+import UserProfile from "./pages/UserProfile";
 
 ReactDOM.render(
   <React.StrictMode>

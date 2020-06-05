@@ -1,13 +1,13 @@
 import React from "react"
-import {Button, Menu, Header} from "semantic-ui-react";
+import {Button, Menu, Header,Dropdown,Image} from "semantic-ui-react";
 import {NavLink} from "react-router-dom";
 
 function Navbar() {
     return (
+
         <Menu>
-            <Menu.Item position="left">
-                <Header>Password Manager</Header>
-            </Menu.Item>
+
+          <Image size='middle' circular src="/Image/Icon.png"/>
 
             <Menu.Item as={NavLink} exact to="/">
                 <Button>Log-in</Button>
