@@ -27,9 +27,9 @@ class Login extends React.Component {
         const loginInfo = this.state;
         // const authenticated = LoginRequest(loginInfo)
         LoginRequest(loginInfo)
-        this.setState({
-            isLogged: LoginRequest(loginInfo)
-        });
+        // this.setState({
+        //     isLogged: LoginRequest(loginInfo)
+        // });
     }
 
     render(){
