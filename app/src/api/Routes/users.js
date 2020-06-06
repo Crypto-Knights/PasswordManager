@@ -27,12 +27,6 @@ router.route('/add').post((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/:id').post((req,res) => {
-    const userID = req.params.id;
-
-    User.find()
-
-});
 
 // server.delete('/:id', (req, res) => {
 //     const todoID = req.params.id;

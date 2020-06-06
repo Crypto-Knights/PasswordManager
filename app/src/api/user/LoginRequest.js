@@ -1,26 +1,28 @@
 import axios from "axios"
+import Login from "../../pages/Login";
 
 /**
  * @return {boolean}
  */
-function LoginRequest(req) {
-    console.log(req)
+async function LoginRequest(req) {
     let authenticated = false;
-    axios.get("http://localhost:5000/users")
+    authenticated = await axios.get("http://localhost:5000/users")
         .then(res => {
-            for (let i = 0; i <= res.data.length - 1; i++) {
-                if (res.data[i].email === req.email) {
-                    authenticated = true;
+                for (let i = 0; i <= res.data.length - 1; i++) {
+                    if (res.data[i].email === req.email) {
+                        authenticated = true;
+                    }
                 }
+                // if (authenticated) {
+                //     console.log("successful log in")
+                //     req.setState({
+                //         isLogged: true
+                //     });
+                // } else {
+                //     console.log("no user found")
+                //     return false;
+                // }
             }
-                if(authenticated) {
-                    console.log("succesful log in")
-                    return true;
-                } else {
-                    console.log("no user found")
-                    return false;
-                }
-        }
         );
     return true;
 }

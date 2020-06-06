@@ -2,24 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/Model/user.model.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/Server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/db.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/createUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/createUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/LoginComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
-      <workItem from="1590994109478" duration="45874000" />
+      <workItem from="1590994109478" duration="51283000" />
     </task>
     <servers />
   </component>

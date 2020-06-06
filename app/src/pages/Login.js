@@ -23,17 +23,19 @@ class Login extends React.Component {
         })
     }
 
-    handleSubmit(){
+    handleSubmit() {
         const loginInfo = this.state;
+        // const authenticated = LoginRequest(loginInfo)
+        LoginRequest(loginInfo)
         this.setState({
             isLogged: LoginRequest(loginInfo)
         });
-        if(this.state.isLogged) {
-            return <Redirect exact to="../Profile"/>
-        }
     }
 
     render(){
+        if(this.state.isLogged) {
+            return <Redirect to="../Profile"/>
+        }
         return (
             <div>
                 <Navbar/>
