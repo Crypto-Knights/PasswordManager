@@ -1,18 +1,10 @@
-async function createUser(userObj) {
-    let jsonResp;
-    const resp = await fetch('/', {
-        method: 'POST',
-        body: JSON.stringify({user: userObj}),
-        headers: {
-            "Content-Type" : "application/json; charset=utf-8"
-        }
-    }).then((response) => {
-        return response.json();
-    }).then((data) =>{
-        if(data.result.ok === 1 && data.result.n === 1) {
-            console.log("success")
-        }
-    })
+import React from "react"
+import axios from "axios";
+
+
+function creatUser(userObj) {
+    axios.post("http://localhost:5000/users/add", userObj)
+        .then(res => console.log(res.data));
 }
 
-export default createUser
+export default creatUser

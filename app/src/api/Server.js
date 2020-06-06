@@ -1,0 +1,143 @@
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});
+
+const connection = mongoose.connection;
+connection.once('open', () =>{
+    console.log("MongoDB database connection established succesfully")
+});
+
+const usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`)
+});
+
+// const express = require('express');
+// const db = require('./db');
+// const collection = "users";
+// const ServerApp = express();
+// const bodyParser = require('body-parser');
+// ServerApp.use(bodyParser.json());
+// const path = require('path');
+//
+//
+//
+// db.connect((err) => {
+//     if (err) {
+//         console.log("unable to connect to database");
+//         process.exit(1);
+//     } else {
+//         ServerApp.listen(3000, () => {
+//             console.log('connected to database, server listening on port 3000')
+//         });
+//     }
+// });
+//
+// ServerApp.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'))
+// });
+//
+// ServerApp.post('/Signup', (req,res) => {
+//     const userInput = req.body;
+//     db.getDB().collection(collection).insertOne(userInput, (err,result) => {
+//         if (err) {
+//             console.log(err)
+//         } else {
+//             res.json({result: result, document: result.ops[0]})
+//         }
+//     })
+// })
+//
+// ServerApp.get('/getUsers', (req,res) =>{
+//     db.getDB().collection(collection).find({}).toArray((err,documents) =>{
+//         if(err)
+//             console.log(err);
+//         else {
+//             console.log(documents);
+//             res.json(documents)
+//         }
+//     })
+// });
+//
+
+// const bodyParser = require('body-parser');
+// const server = express();
+// server.use(bodyParser.json());
+// const path = require('path');
+//
+// const db = require('./db');
+// const collection = "users";
+
+// server.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'index.html'))
+// });
+//
+// server.get('/getUsers', (req,res) =>{
+//     db.getDB().collection(collection).find({}).toArray((err,documents) =>{
+//         if(err)
+//             console.log(err);
+//         else {
+//             console.log(documents);
+//             res.json(documents)
+//         }
+//     })
+// });
+//
+// server.put('/:id',(req,res) =>{
+//     const todoID = req.params.id;
+//     const userInput = req.body;
+//
+//     db.getDB().collection(collection).findOneAndUpdate({_id: db.getPrimaryKey(todoID)}, {$set: {todo: userInput.todo}}, {returnOriginal: false}, (err,result) => {
+//         if(err)
+//             console.log(err);
+//         else {
+//             res.json(result)
+//         }
+//         })
+// });
+//
+// server.post('/', (req,res) => {
+//     const userInput = req.body;
+//     db.getDB().collection(collection).insertOne(userInput, (err,result) =>{
+//         if(err)
+//             console.log(err);
+//         else {
+//             res.json({result: result, document: result.ops[0]})
+//         }
+//     })
+// });
+//
+// server.delete('/:id', (req, res) => {
+//     const todoID = req.params.id;
+//
+//     db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err,result) => {
+//         if(err)
+//             console.log(err);
+//         else {
+//             res.json(result)
+//         }
+//     })
+// })
+//
+// db.connect((err) => {
+//     if (err) {
+//         console.log("unable to connect to database");
+//         process.exit(1);
+//     } else {
+//         server.listen(3000, () => {
+//             console.log('connected to database, server listening on port 3000')
+//         });
+//     }
+// });

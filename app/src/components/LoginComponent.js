@@ -20,8 +20,8 @@ function LoginComponent(props) {
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>
-                <Form size="medium" key="small" onSubmit={props.handleSubmit}>
-                    <Form.Field width={20}>
+                <Form size="small" key="small" onSubmit={props.handleSubmit}>
+                    <Form.Field width={16}>
                         <Label style={{ marginBottom: '8px' }}>Email</Label>
                         <input
                             value={props.email}
@@ -32,7 +32,7 @@ function LoginComponent(props) {
                             style={{ marginBottom: '10px' }}
                         />
                     </Form.Field>
-                    <Form.Field width={20}>
+                    <Form.Field width={16}>
                         <Label style={{ marginBottom: '8px' }}>Password</Label>
                         <input
                             name="password"
