@@ -14,11 +14,11 @@ router.route('/login').get((req,res) => {
     console.log("logged in")
 })
 
-// router.route('/login', passport.authenticate('local', {
-//     successRedirect: '/Profile',
-//     failureRedirect: '/',
-//     failureFlash: true
-// }))
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/Profile',
+    failureRedirect: '/',
+    failureFlash: true
+}))
 
 // router.route('/login').post((req,res) => {
 //     //Authenticate User

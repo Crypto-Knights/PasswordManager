@@ -1,8 +1,9 @@
+const axios = require('axios');
+
 let User = require('./Model/user.model');
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
-
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -13,20 +14,12 @@ const port = process.env.PORT || 5000;
 const flash = require('express-flash')
 const session = require('express-session')
 
-
 require('dotenv').config();
 
-users = [{
+const users = [{
     email: "rod",
     password: "$2b$10$yQ4EV1hoBPVeMfTVi1Hp4eICHaVbo2avIIL3ahraVMSmQuRME0DFm"
 }]
-
-initializePassport(
-        passport,
-        email => users.find(user => user.email === email)
-)
-
-
 app.use(flash())
 app.use(cors());
 app.use(express.json());
@@ -46,11 +39,32 @@ connection.once('open', () =>{
     console.log("MongoDB database connection established succesfully")
 });
 
-app.post('/users/login', passport.authenticate('local', {
-    successRedirect: '/Profile',
-    failureRedirect: '/',
-    failureFlash: true
-}))
+
+async function getUserByEmail(email) {
+    // console.log(User.find({email: email}).then(res => console.log(res)))
+    const user = await User.find({email: email})
+    return user
+
+
+}
+
+initializePassport(passport, getUserByEmail)
+
+// initializePassport(passport, (email) =>{
+//     axios.post('/getAllUsers', {email: email})
+//         .then(res => console.log('here'))
+// })
+
+// initializePassport(
+//     passport,
+//     (email) => User.find(user => {
+//         return user.email === email})
+// )
+// app.post('/users/login', passport.authenticate('local', {
+//     successRedirect: '/Profile',
+//     failureRedirect: '/',
+//     failureFlash: true
+// }));
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
