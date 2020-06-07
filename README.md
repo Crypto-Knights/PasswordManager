@@ -20,7 +20,7 @@ ii. Command line tool for Windows to run dynamic web pages.
 iii. Executes JavaScript code outside a web browser
 
 4. Database
-a. MongoDB
+   a. MongoDB
 React
 i. Version 4.2.7 2008R2Plus SSL
 ii. Compass Community
@@ -28,31 +28,38 @@ iii. NoSQL database
 
 Deprecated/Unsafe functions:
 
- 1. componentWillMount()
-a. Use constructor for stuff that doesn’t produce side-effects
-2. componentWillReceiveProps() a. getDerivedFromProps()
+1. componentWillMount()
+   a. Use constructor for stuff that doesn’t produce side-effects
+2. componentWillReceiveProps() 
+   a. getDerivedFromProps()
 3. componentWillUpdate()
-a. getSnapshotBeforeUpdate
+   a. getSnapshotBeforeUpdate
 4. <a href={}>
-a. onClick()
-b. onSubmit()
+   a. onClick()
+   b. onSubmit()
 5. FactoryComponent()
  
 Node.js
 1. eval()
-a. JSON.parse()
-b. Validate input with Joi
+   a. JSON.parse()
+   b. Validate input with Joi
 2. setInterval()
-a. Promises .then() 3. setTimeout
-a. Promises .then() 4. child_process.exec()
-a. child_process.execFile()
+   a. Promises .then() 
+3. setTimeout
+   a. Promises .then() 
+4. child_process.exec()
+   a. child_process.execFile()
  
 MongoDB
-1. findOneAndModify() a. findAndModify
+1. findOneAndModify()
+  a. findAndModify
 2. remove()
-a. deleteOne
-b. deleteMany 3. update()
-a. udateOne() b. updateMany() c. replaceOne()
+  a. deleteOne
+  b. deleteMany 
+3. update()
+  a. udateOne() 
+  b. updateMany() 
+  c. replaceOne()
  
  
  Static Analysis:
