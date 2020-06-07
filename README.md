@@ -37,6 +37,7 @@ Deprecated/Unsafe functions:
 4. <a href={}>
    a. onClick()
    b. onSubmit()
+	
 5. FactoryComponent()
  
 Node.js
