@@ -2,7 +2,7 @@ import React from "react"
 import Navbar from "../components/Navbar";
 import LoginComponent from "../components/LoginComponent";
 import LoginRequest from "../api/user/LoginRequest";
-import Redirect from "react-router-dom/es/Redirect";
+import {Redirect} from "react-router-dom";
 
 class Login extends React.Component {
     constructor() {
@@ -23,13 +23,12 @@ class Login extends React.Component {
         })
     }
 
-    handleSubmit() {
+    async handleSubmit() {
         const loginInfo = this.state;
-        // const authenticated = LoginRequest(loginInfo)
-        LoginRequest(loginInfo)
-        // this.setState({
-        //     isLogged: LoginRequest(loginInfo)
-        // });
+
+        this.setState({
+            isLogged: await LoginRequest(loginInfo)
+        });
     }
 
     render(){

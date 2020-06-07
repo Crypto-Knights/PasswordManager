@@ -2,9 +2,7 @@ import React from "react"
 import Navbar from "../components/Navbar";
 import ProfileComponent from '../components/ProfileComponent';
 import {
-  Button,
   Divider,
-  Form,
   Grid,
   Message,
   MessageHeader,

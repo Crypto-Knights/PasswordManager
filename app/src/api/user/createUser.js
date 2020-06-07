@@ -1,6 +1,4 @@
-import React from "react"
 import axios from "axios";
-
 
 function creatUser(userObj) {
     axios.post("http://localhost:5000/users/add", userObj)
