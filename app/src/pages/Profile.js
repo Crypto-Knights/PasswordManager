@@ -27,7 +27,7 @@ class Profile extends React.Component {
     this.setState(({ progress, password }) => ({
       password: { ...password, length: value }
     }), () => this.createPassword());
-  }
+  };
 
   createPassword = () => {
     let a = "",
@@ -39,7 +39,7 @@ class Profile extends React.Component {
     this.setState(state => ({
       password: { ...state.password, data: a }
     }));
-  }
+  };
 
   render() {
     return (
