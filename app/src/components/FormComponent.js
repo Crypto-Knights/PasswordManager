@@ -61,20 +61,20 @@ function FormComponent(props) {
                 </Form.Field>
                 <Form.Field>
                     <label>Security Question 1</label>
-                    <Select
-                        placeholder="Please Select a question"
-                        options={props.securityQuestions}
-                        name="questionOne"
-                        value={props.questionOne}
-                        onClick={props.handleChange}
-                    />
                     <select
                         placeholder="Please Select a Question"
                         name="questionOne"
                         value={props.questionOne}
-
+                        onChange={props.handleChange}
                     >
-                        <option value={""}></option>
+                        <option>Please Select a security question</option>
+                        <option value={"What primary school did you attend?"}>What primary school did you attend?</option>
+                        <option value={"What was the house number and street name you lived in as a child?"}>What was the house number and street name you lived in as a child?</option>
+                        <option value={"What were the last four digits of your childhood telephone number?"}>What were the last four digits of your childhood telephone number?</option>
+                        <option value={"In what town or city was your first full time job?"}>In what town or city was your first full time job?</option>
+                        <option value={"What is the middle name of your oldest child?"}>What is the middle name of your oldest child?</option>
+                        <option value={"What are the last five digits of your driver\\'s license number?"}>What are the last five digits of your driver\'s license number?</option>
+                        <option value={"What is your spouse or partner\\'s mother\\'s maiden name?"}>What is your spouse or partner\'s mother\'s maiden name?</option>
                     </select>
                 </Form.Field>
                 <Form.Field width={16}>
