@@ -18,6 +18,7 @@ function FormComponent(props) {
                 <Header as="h2" textAlign="center">
                     Register your account
                 </Header>
+                    {props.errorMsg ? <Message error>{props.errorMsg}</Message> : null}
             <Form onSubmit={props.handleSubmit} id="createUserInput">
                 <Form.Field width={16}>
                     <label>First Name</label>
@@ -46,7 +47,7 @@ function FormComponent(props) {
                         value={props.email}
                         name="email"
                         onChange={props.handleChange}
-                        type="text"
+                        type="email"
                     />
                 </Form.Field>
                 <Form.Field width={16}>

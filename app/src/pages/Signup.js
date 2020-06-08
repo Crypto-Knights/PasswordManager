@@ -1,7 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 import FormComponent from "../components/FormComponent";
 import createUser from "../api/user/createUser";
 import Navbar from "../components/Navbar";
+import FieldErrorCheck from "../components/FieldErrorCheck";
+import Redirect from "react-router-dom/es/Redirect";
 
 const securityQuestions = [
     {key: '1', value: '1', text: 'What primary school did you attend?'},
@@ -24,7 +26,9 @@ class Signup extends React.Component {
             email: "",
             password: "",
             answerOne: "",
-            questionOne: ""
+            questionOne: "",
+            errorMsg: "",
+            redirect: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -33,17 +37,32 @@ class Signup extends React.Component {
     handleChange(event) {
         const {name, value} = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            errorMsg: null
         })
+
     }
 
-    handleSubmit = () => {
+    handleSubmit = async () => {
         const userObj = this.state;
-        console.log(userObj)
-        // createUser(userObj)
+        const fieldError = FieldErrorCheck(userObj)
+        if (fieldError) {
+            await this.setState({
+                errorMsg: fieldError
+            });
+            console.log(this.state.errorMsg)
+        } else {
+            createUser(userObj)
+            this.setState({
+                redirect: true
+            })
+        }
     };
 
     render() {
+        if(this.state.redirect) {
+            return <Redirect to="../"/>
+        }
         return (
             <div>
                 <Navbar/>

@@ -26,6 +26,7 @@ function LoginComponent(props) {
                         <input
                             value={props.email}
                             onChange={props.handleChange}
+                            type="email"
                             name="email"
                             placeholder="example@hotmail.com"
                             className="loginInputStyle"
