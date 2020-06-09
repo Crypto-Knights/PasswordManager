@@ -45,14 +45,14 @@ class Signup extends React.Component {
 
     handleSubmit = async () => {
         const userObj = this.state;
-        const fieldError = FieldErrorCheck(userObj)
+        const fieldError = FieldErrorCheck(userObj);
         if (fieldError) {
             await this.setState({
                 errorMsg: fieldError
             });
             console.log(this.state.errorMsg)
         } else {
-            createUser(userObj)
+            createUser(userObj);
             this.setState({
                 redirect: true
             })

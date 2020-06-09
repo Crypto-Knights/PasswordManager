@@ -5,7 +5,7 @@ async function LoginRequest(req) {
         return (await axios.post("http://localhost:5000/users/login", req))
 
     } catch (e) {
-        console.log(e)
+        console.log(e + " LoginRequest function")
     }
 }
 

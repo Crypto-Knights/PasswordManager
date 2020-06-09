@@ -4,6 +4,8 @@ import LoginComponent from "../components/LoginComponent";
 import LoginRequest from "../api/user/LoginRequest";
 import {Redirect} from "react-router-dom";
 
+//todo: Check if user just signed up, if so, display successful signup
+
 class Login extends React.Component {
     constructor() {
         super()
@@ -12,12 +14,12 @@ class Login extends React.Component {
             password: "",
             isLogged: false
         };
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        const {name, value} = event.target
+        const {name, value} = event.target;
         this.setState({
             [name]: value
         })

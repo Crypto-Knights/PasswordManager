@@ -10,6 +10,9 @@ import {
   MessageList,
   Segment
 } from 'semantic-ui-react'
+
+//todo: Is user authorized to access profile page? if not, redirect back to login page
+
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -42,6 +45,7 @@ class Profile extends React.Component {
   };
 
   render() {
+
     return (
     <div>
       <Navbar/>

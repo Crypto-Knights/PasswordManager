@@ -10,4 +10,4 @@ export const CREATE_USER_ERROR_MESSAGES = {
         ' 1 lower case letter, 1 number, and 1 special character',
 
     ILLEGAL_CHARACTER_DETECTED: 'Failed to register. All fields excluding password cannot contain special characters'
-}
+};

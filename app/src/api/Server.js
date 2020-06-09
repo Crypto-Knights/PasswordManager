@@ -1,3 +1,4 @@
+
 const axios = require('axios');
 let User = require('./Model/user.model');
 if(process.env.NODE_ENV !== 'production') {
@@ -36,14 +37,12 @@ connection.once('open', () =>{
 
 
 async function getUserByEmail(email) {
-    const user = await User.find({email: email});
-    return user
+    return await User.find({email: email})
 }
 
 async function getUserById(id) {
     console.log(id);
-    const user = await User.find({_id: "5edb66cc97eb8d9303807ce8"})
-    return user
+    return await User.find({_id: id})
 }
 
 // async function getUserById(id) {
@@ -53,7 +52,6 @@ async function getUserById(id) {
 // }
 
 initializePassport(passport, getUserByEmail, getUserById);
-
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
