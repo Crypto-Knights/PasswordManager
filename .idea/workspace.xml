@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/user/authenticateToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/api/user/generateAccessToken.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/api/user/LogoutRequest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/components/ProfileNavbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +70,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="1928000" />
+      <workItem from="1591752215225" duration="2993000" />
     </task>
     <servers />
   </component>

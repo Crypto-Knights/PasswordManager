@@ -10,6 +10,8 @@ import {
   MessageList,
   Segment
 } from 'semantic-ui-react'
+import ProfileNavBar from "../components/ProfileNavbar";
+import LogoutRequest from "../api/user/LogoutRequest";
 
 //todo: Is user authorized to access profile page? if not, redirect back to login page
 
@@ -20,6 +22,7 @@ class Profile extends React.Component {
     this.state = {
       password: { length: 11, data: "" }
     }
+    this.onClick = this.onClick.bind(this)
   }
 
   componentDidMount() {
@@ -31,6 +34,10 @@ class Profile extends React.Component {
       password: { ...password, length: value }
     }), () => this.createPassword());
   };
+
+  onClick() {
+    LogoutRequest();
+  }
 
   createPassword = () => {
     let a = "",
@@ -48,7 +55,7 @@ class Profile extends React.Component {
 
     return (
     <div>
-      <Navbar/>
+      <ProfileNavBar onClick={this.onClick}/>
       <Segment placeholder>
         <Grid columns={2} relaxed='very' stackable>
           <Grid.Column>
