@@ -27,12 +27,14 @@ function ProfileComponent(props) {
               <Form.Input
                   icon='lock'
                   iconPosition='left'
-                  label='Password'
-                  type='password'
-                  placeholder="*********"
+                  placeholder='Password'
+                  value={props.password}
+                  name="password"
+                  onChange={props.handleChange}
+                  type="password"
               />
 
-              <Button content='Save' primary />
+              <Button type='submit'>Submit</Button>
             </Form>
           </Grid.Column>
 
