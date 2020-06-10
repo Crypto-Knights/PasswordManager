@@ -1,5 +1,4 @@
 import axios from "axios"
-import {LOGIN_ERROR_MESSAGE} from "./constants";
 
 /**
  * @return {string}

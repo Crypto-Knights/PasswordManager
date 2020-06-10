@@ -1,22 +1,13 @@
 require('dotenv').config();
 const router = require('express').Router();
 let User = require('../Model/user.model');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const passport = require('passport');
-
-
-
 
 router.route('/getUsers').get((req,res) => {
     User.find()
         .then(users => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
-
-
-
-
 
 router.route('/:id').get((req,res) => {
     User.findById(req.params.id)
@@ -51,9 +42,6 @@ router.route('/add').post(async (req,res) => {
     } catch {
         res.status(500).json()
     }
-
-
-
 });
 
 
@@ -69,4 +57,4 @@ router.route('/add').post(async (req,res) => {
 //     })
 // })
 
-module.exports = router
+module.exports = router;

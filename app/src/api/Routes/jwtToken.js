@@ -8,7 +8,7 @@ const passport = require('passport');
 router.route('/logout').delete((req,res) => {
     refreshTokens = refreshTokens.filter(token => token !== req.body.token);
     res.sendStatus(204)
-})
+});
 
 router.route('/token').post((req,res) => {
     const refreshToken = req.body.token;
@@ -19,7 +19,7 @@ router.route('/token').post((req,res) => {
         const accessToken = generateAccessToken({name: user.email});
         res.json({accessToken: accessToken})
     })
-})
+});
 
 let refreshTokens = [];
 
@@ -33,4 +33,4 @@ router.post('/',  passport.authenticate('local'), (req, res) => {
     res.json({accessToken: accessToken, refreshToken: refreshToken})
 });
 
-module.exports = router
+module.exports = router;

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React from "react"
 import FormComponent from "../components/FormComponent";
 import createUser from "../api/user/createUser";
 import Navbar from "../components/Navbar";

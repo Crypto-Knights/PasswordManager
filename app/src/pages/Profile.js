@@ -12,6 +12,8 @@ import {
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
+import {Redirect} from "react-router-dom";
+import IsLoggedIn from "../api/IsLoggedIn";
 
 //todo: Is user authorized to access profile page? if not, redirect back to login page
 
@@ -21,7 +23,7 @@ class Profile extends React.Component {
 
     this.state = {
       password: { length: 11, data: "" }
-    }
+    };
     this.onClick = this.onClick.bind(this)
   }
 
