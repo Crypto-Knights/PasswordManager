@@ -12,7 +12,6 @@ const app = express();
 const port = process.env.PORT || 5000;
 const flash = require('express-flash');
 const session = require('express-session');
-const jwt = require('jsonwebtoken')
 
 
 require('dotenv').config();
@@ -47,6 +46,9 @@ async function getUserById(id) {
     return await User.find({_id: id})
 }
 
+
+
+
 // async function getUserById(id) {
 //     console.log(id)
 //     const user = await User.find({_id: "5edb66cc97eb8d9303807ce8"})
@@ -57,6 +59,8 @@ initializePassport(passport, getUserByEmail, getUserById);
 
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
+const jwtLogin = require('./routes/jwtToken');
+app.use('/login', jwtLogin);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)

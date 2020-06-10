@@ -6,7 +6,7 @@ import {LOGIN_ERROR_MESSAGE} from "./constants";
  */
 async function LoginRequest(req) {
     try {
-        return (await axios.post("http://localhost:5000/users/login", req));
+        return (await axios.post("http://localhost:5000/login", req));
     } catch (e) {
         return false
     }
