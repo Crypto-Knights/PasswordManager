@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/IsLoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/IsLoggedIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/user/passport-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/passport-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/LoginComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/pages/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +72,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="7367000" />
+      <workItem from="1591752215225" duration="10310000" />
     </task>
     <servers />
   </component>
@@ -106,10 +107,10 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="660" y="-822" key="RollbackChangesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591173915329" />
-    <state x="461" y="-901" key="SettingsEditor" timestamp="1591606038411">
+    <state x="461" y="-901" key="SettingsEditor" timestamp="1591761616021">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="461" y="-901" key="SettingsEditor/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591606038411" />
+    <state x="461" y="-901" key="SettingsEditor/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591761616021" />
     <state x="1271" y="-708" key="com.intellij.ide.util.TipDialog" timestamp="1591082360449">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
