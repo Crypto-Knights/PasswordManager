@@ -6,8 +6,7 @@ import Signup from "./pages/Signup";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import UserProfile from "./pages/UserProfile";
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,7 +15,9 @@ ReactDOM.render(
               <Route exact path="/" component={Login}/>
               <Route path="/Signup" component={Signup}/>
           </Switch>
+        <Footer/>
       </Router>
+
   </React.StrictMode>,
   document.getElementById('root')
 );

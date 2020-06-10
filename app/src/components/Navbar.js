@@ -7,7 +7,7 @@ function Navbar() {
 
         <Menu>
 
-          <Image size='middle' circular src="/Image/Icon.png"/>
+          <Image size='ui small' circular src="/Image/Icon.png"/>
 
             <Menu.Item as={NavLink} exact to="/">
                 <Button>Log-in</Button>
