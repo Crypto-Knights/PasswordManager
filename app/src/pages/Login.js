@@ -3,12 +3,13 @@ import Navbar from "../components/Navbar";
 import LoginComponent from "../components/LoginComponent";
 import LoginRequest from "../api/user/LoginRequest";
 import {Redirect} from "react-router-dom";
+import IsLoggedIn from "../api/IsLoggedIn";
 
 //todo: Check if user just signed up, if so, display successful signup
 
 class Login extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             email: "",
             password: "",

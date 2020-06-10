@@ -5,10 +5,9 @@ import axios from "axios"
  */
 async function IsLoggedIn(req) {
     try {
-        console.log(req.body.token)
-        return (await axios.get("http://localhost:5000/login/token", req));
+        return (await axios.post("http://localhost:5000/login/token", req));
     } catch (e) {
-        return false
+        return e
     }
 
 

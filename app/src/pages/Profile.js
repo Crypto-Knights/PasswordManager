@@ -37,7 +37,7 @@ class Profile extends React.Component {
     }), () => this.createPassword());
   };
 
-  onClick() {
+  async onClick() {
     LogoutRequest();
   }
 
