@@ -23,16 +23,31 @@ router.route('/getQuestion').post((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
+router.route('/authorizeChange').post(async (req,res) => {
+    const answerOne = req.body.answerOne;
+    const email = req.body.email;
+    const user = await User.find({email: email})
+    if(await bcrypt.compare(answerOne, user[0].answerOne)) {
+        console.log("correct answer");
+        res.send(true)
+    } else {
+        console.log("wrong answer");
+        res.send(false)
+
+    }
+
+})
+
 router.route('/add').post(async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();
+        const answerOne = await bcrypt.hash(req.body.answerOne, salt);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
         const email = req.body.email;
         const password = hashedPassword;
         const firstName = req.body.firstName;
         const lastName = req.body.lastName;
         const questionOne = req.body.questionOne;
-        const answerOne = req.body.answerOne;
 
         const newUser = new User ({
             email,

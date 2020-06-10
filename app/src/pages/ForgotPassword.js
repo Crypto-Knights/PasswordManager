@@ -1,10 +1,10 @@
 import React from 'react';
-import {Grid, Header, Image, Form, Button, Label} from 'semantic-ui-react'
 import Navbar from "../components/Navbar";
-import axios from "axios"
 import SecurityQuestion from "../components/SecurityQuestion";
 import RequestForgotPassword from "../components/RequestForgotPassword";
 import GetQuestion from "../api/user/GetQuestion";
+import axios from 'axios'
+import ChangePassword from "../components/ChangePassword";
 
 class ForgotPassword extends React.Component{
 
@@ -14,22 +14,43 @@ class ForgotPassword extends React.Component{
         this.state = {
             questionOne: '',
             answerOne: '',
-            email: ''
+            email: '',
+            gotQuestion: false,
+            answerCorrect: false,
+            passwordOne: '',
+            passwordTwo: ''
         }
-        this.handleChange = this.handleChange.bind(this)
-        this.getQuestion = this.getQuestion.bind(this)
+        this.handleChange = this.handleChange.bind(this);
+        this.getQuestion = this.getQuestion.bind(this);
+        this.changePassword = this.changePassword.bind(this);
+        this.authorizeChange = this.authorizeChange.bind(this);
+    }
+    authorizeChange() {
+
     }
 
-    componentDidMount() {
+    async changePassword() {
+        const userAnswer = {
+            answerOne: this.state.answerOne,
+            email: this.state.email
+        }
+        const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer)
+        this.setState({
+            answerCorrect: response
+        })
+        console.log(this.state)
     }
+
 
     async getQuestion() {
         const email = {email: this.state.email};
         const question = await GetQuestion(email);
-        console.log(question.data)
-        this.setState({
-            questionOne: question.data
-        })
+        if(question) {
+            this.setState({
+                questionOne: question.data,
+                gotQuestion: true
+            })
+        }
     }
 
     handleChange(event) {
@@ -43,14 +64,28 @@ class ForgotPassword extends React.Component{
         return (
             <div>
                 <Navbar/>
-                <Header>{this.state.questionOne}</Header>
-                <SecurityQuestion
-                    handleChange={this.handleChange}
-                />
-                <RequestForgotPassword
+                {this.state.gotQuestion ?
+                    [
+                        this.state.answerCorrect ?
+                            <ChangePassword
+                                passwordChange={this.authorizeChange}
+                                {...this.state}
+                            />
+                            :
+                    <SecurityQuestion
+                        handleChange={this.handleChange}
+                        changePassword={this.changePassword}
+                        {...this.state}
+                    />
+                    ]
+                    :
+                    <RequestForgotPassword
                     handleChange={this.handleChange}
                     getQuestion={this.getQuestion}
-                />
+                    />
+                }
+
+
             </div>
         )
     }

@@ -1,8 +1,7 @@
 import React from "react"
-import {Button, Form, Grid, Header, Label} from "semantic-ui-react";
-import Message from "semantic-ui-react/dist/commonjs/collections/Message";
+import {Grid, Form, Button, Label, Header} from 'semantic-ui-react'
 
-function SecurityQuestion(props) {
+function ChangePassword(props) {
     return (
         <div>
             <Grid centered columns={1}>
@@ -19,17 +18,23 @@ function SecurityQuestion(props) {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                    <Form size="medium" key="small" onSubmit={props.changePassword}>
+                    <Form size="medium" key="small" onSubmit={props.getQuestion}>
                         <Form.Field width={20}>
-                            <Label style={{ marginBottom: '8px' }}>Security Question 1</Label>
-                            <Message>{props.questionOne}</Message>
+                            <Label style={{ marginBottom: '8px' }}>New Password</Label>
+                            <input
+                                onChange={props.authorizeChange}
+                                name="passwordOne"
+                                value={props.passwordOne}
+                                type="password"
+                                placeholder="*********"
+                            />
                         </Form.Field>
                         <Form.Field width={20}>
-                            <Label style={{ marginBottom: '8px' }}>Answer</Label>
+                            <Label style={{ marginBottom: '8px' }}>Confirm Password</Label>
                             <input
-                                value={props.answerOne}
-                                name="answerOne"
-                                onChange={props.handleChange}
+                                onChange={props.authorizeChange}
+                                name="passwordTwo"
+                                value={props.passwordTwo}
                                 type="password"
                                 placeholder="*********"
                             />
@@ -42,4 +47,4 @@ function SecurityQuestion(props) {
     )
 }
 
-export default SecurityQuestion
+export default ChangePassword
