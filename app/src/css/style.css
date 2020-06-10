@@ -1,10 +1,10 @@
 .background
 {
-    /*background: url("../images/background.jpeg") no-repeat center center fixed;*/
+    background: url("../css/background.png") no-repeat center center fixed;
     height: 100%;
     width: 100%;
     padding-top: 100px;
-    background-size: cover;
+    background-size: cover ;
     padding-bottom: 60%;
     opacity: 0.9 !important;
 

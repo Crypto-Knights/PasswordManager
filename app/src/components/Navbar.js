@@ -1,28 +1,25 @@
 import React from "react"
-import {Button, Menu, Header} from "semantic-ui-react";
+import {Button, Menu, Header,Dropdown,Image} from "semantic-ui-react";
 import {NavLink} from "react-router-dom";
 
 function Navbar() {
-    return (
-        <Menu>
-            <Menu.Item position="left">
-                <Header>Password Manager</Header>
-            </Menu.Item>
+  return (
 
-            <Menu.Item as={NavLink} exact to="/">
-                <Button>Log-in</Button>
-            </Menu.Item>
+      <Menu>
 
-            <Menu.Item as={NavLink} exact to="/Signup">
-                <Button primary>Sign up</Button>
-            </Menu.Item>
+        <Image size='ui small' circular src="/Image/Icon.png"/>
 
-            <Menu.Item as={NavLink} exact to="/Profile">
-                <Button primary>Profile</Button>
-            </Menu.Item>
+        <Menu.Item position="right">
+          <Dropdown  icon="user" text="Login" pointing="top right" as={NavLink} exact to="/">
+            <Dropdown.Menu>
+              <Dropdown.Item icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
+              <Dropdown.Item icon="user" text="Profile" as={NavLink} exact to="/Profile"/>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Menu.Item>
 
-        </Menu>
-    )
+      </Menu>
+  )
 }
 
 export default Navbar
