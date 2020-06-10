@@ -31,7 +31,6 @@ class Signup extends React.Component {
             redirect: false
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {

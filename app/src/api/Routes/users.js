@@ -15,6 +15,14 @@ router.route('/:id').get((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/getQuestion').post((req,res) => {
+    const email = req.body.email;
+    User.find({email: email})
+        .then(users=>res.json(users[0].questionOne))
+        // .then(users => res.send(users[0].questionOne))
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
 router.route('/add').post(async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();

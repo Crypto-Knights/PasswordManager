@@ -1,6 +1,10 @@
 import React from 'react';
 import {Grid, Header, Image, Form, Button, Label} from 'semantic-ui-react'
 import Navbar from "../components/Navbar";
+import axios from "axios"
+import SecurityQuestion from "../components/SecurityQuestion";
+import RequestForgotPassword from "../components/RequestForgotPassword";
+import GetQuestion from "../api/user/GetQuestion";
 
 class ForgotPassword extends React.Component{
 
@@ -9,60 +13,44 @@ class ForgotPassword extends React.Component{
 
         this.state = {
             questionOne: '',
-            answerOne: ''
+            answerOne: '',
+            email: ''
         }
         this.handleChange = this.handleChange.bind(this)
+        this.getQuestion = this.getQuestion.bind(this)
+    }
+
+    componentDidMount() {
+    }
+
+    async getQuestion() {
+        const email = {email: this.state.email};
+        const question = await GetQuestion(email);
+        console.log(question.data)
+        this.setState({
+            questionOne: question.data
+        })
     }
 
     handleChange(event) {
-        const [name, value] = event.target;
+        const {name, value} = event.target;
         this.setState({
             [name]: value
         })
-
     }
 
     render() {
         return (
             <div>
                 <Navbar/>
-                <div className="background">
-                    <Grid centered columns={1}>
-                        <Grid.Row style={{ marginTop: '100px' }}>
-                            <Grid.Column>
-                                <Header as="h1" textAlign="center">
-                                    Security Question
-                                </Header>
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row style={{ marginTop: '20px' }}>
-                            <Grid.Column width={4}>
-
-                            </Grid.Column>
-                        </Grid.Row>
-                        <Grid.Row>
-                            <Form size="medium" key="small">
-                                <Form.Field width={20}>
-                                    <Label style={{ marginBottom: '8px' }}>Security Question 1</Label>
-                                    <input
-                                        type="text"
-                                        onChange={this.handleChange}
-                                        className="loginInputStyle"
-                                        style={{ marginBottom: '10px' }}
-                                    />
-                                </Form.Field>
-                                <Form.Field width={20}>
-                                    <Label style={{ marginBottom: '8px' }}>Answer</Label>
-                                    <input
-                                        type="password"
-                                        placeholder="*********"
-                                    />
-                                </Form.Field>
-                                <Button >Submit</Button>
-                            </Form>
-                        </Grid.Row>
-                    </Grid>
-                </div>
+                <Header>{this.state.questionOne}</Header>
+                <SecurityQuestion
+                    handleChange={this.handleChange}
+                />
+                <RequestForgotPassword
+                    handleChange={this.handleChange}
+                    getQuestion={this.getQuestion}
+                />
             </div>
         )
     }
