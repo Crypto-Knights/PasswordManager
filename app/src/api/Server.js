@@ -1,4 +1,3 @@
-
 const axios = require('axios');
 let User = require('./Model/user.model');
 if(process.env.NODE_ENV !== 'production') {
@@ -13,9 +12,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 const flash = require('express-flash');
 const session = require('express-session');
+const jwt = require('jsonwebtoken')
+
 
 require('dotenv').config();
 
+app.use(express.json())
 app.use(flash());
 app.use(cors());
 app.use(express.json());
@@ -59,4 +61,3 @@ app.use('/users', usersRouter);
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 });
-

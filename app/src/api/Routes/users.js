@@ -1,8 +1,12 @@
+require('dotenv').config()
 const router = require('express').Router();
 let User = require('../Model/user.model');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
+
+
+
 
 router.route('/getUsers').get((req,res) => {
     User.find()
@@ -10,15 +14,33 @@ router.route('/getUsers').get((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/login').get((req,res) => {
-    console.log("logged in")
-})
-
-
-
 router.post('/login',  passport.authenticate('local'), (req, res) => {
-    res.send(true)
+
+    const email = req.body.email;
+    const user = {name: email};
+    const accessToken = generateAccessToken(user)
+    const refreshToken = jwt.sign(user, process.env.REFRECH_TOKEN_SECRET)
+    res.json({accessToken: accessToken, refreshToken: refreshToken})
+
+    // res.send(true)
+
 });
+
+function authenticateToken(req,res,next) {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if(token == null) return res.sendStatus(401)
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+        if(err) return res.send(403)
+        req.user = user
+        next()
+    })
+}
+
+function generateAccessToken(user) {
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '15s'})
+}
 
 // router.route('/login').post((req,res) => {
 //     //Authenticate User

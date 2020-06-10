@@ -1,5 +1,6 @@
 import React from "react"
 import {Grid, Header, Image, Form, Label, Button } from "semantic-ui-react";
+import Message from "semantic-ui-react/dist/commonjs/collections/Message";
 
 
 function LoginComponent(props) {
@@ -16,7 +17,13 @@ function LoginComponent(props) {
             </Grid.Row>
             <Grid.Row style={{ marginTop: '20px' }}>
                 <Grid.Column width={4}>
-
+                    {
+                        props.errorMsg ? (
+                            <Message negative>
+                                {props.errorMsg}
+                            </Message>
+                        ) : null
+                    }
                 </Grid.Column>
             </Grid.Row>
             <Grid.Row>

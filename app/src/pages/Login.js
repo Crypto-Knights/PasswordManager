@@ -12,7 +12,8 @@ class Login extends React.Component {
         this.state = {
             email: "",
             password: "",
-            isLogged: false
+            isLogged: false,
+            errorMsg: ""
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,7 +22,8 @@ class Login extends React.Component {
     handleChange(event) {
         const {name, value} = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            errorMsg: ""
         })
     }
 
@@ -31,11 +33,16 @@ class Login extends React.Component {
         this.setState({
             isLogged: await LoginRequest(loginInfo)
         });
+        if(!this.state.isLogged) {
+            this.setState({
+                errorMsg: "Email or password was incorrect"
+            })
+        }
     }
 
     render(){
         if(this.state.isLogged) {
-            return <Redirect to="../Profile"/>
+            return <Redirect to="../Profile" />
         }
         return (
             <div>
