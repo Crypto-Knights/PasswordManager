@@ -18,11 +18,11 @@ function ChangePassword(props) {
                     </Grid.Column>
                 </Grid.Row>
                 <Grid.Row>
-                    <Form size="medium" key="small" onSubmit={props.getQuestion}>
+                    <Form size="medium" key="small" onSubmit={props.authorizeChange}>
                         <Form.Field width={20}>
                             <Label style={{ marginBottom: '8px' }}>New Password</Label>
                             <input
-                                onChange={props.authorizeChange}
+                                onChange={props.handleChange}
                                 name="passwordOne"
                                 value={props.passwordOne}
                                 type="password"
@@ -32,7 +32,7 @@ function ChangePassword(props) {
                         <Form.Field width={20}>
                             <Label style={{ marginBottom: '8px' }}>Confirm Password</Label>
                             <input
-                                onChange={props.authorizeChange}
+                                onChange={props.handleChange}
                                 name="passwordTwo"
                                 value={props.passwordTwo}
                                 type="password"

@@ -25,8 +25,17 @@ class ForgotPassword extends React.Component{
         this.changePassword = this.changePassword.bind(this);
         this.authorizeChange = this.authorizeChange.bind(this);
     }
-    authorizeChange() {
-
+    async authorizeChange() {
+        const newUserPassword = {
+            email: this.state.email,
+            password: this.state.passwordOne
+        };
+        const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword)
+        if(!response) {
+            console.log("error in server")
+        } else {
+            console.log("successful change")
+        }
     }
 
     async changePassword() {
@@ -36,9 +45,8 @@ class ForgotPassword extends React.Component{
         }
         const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer)
         this.setState({
-            answerCorrect: response
+            answerCorrect: response.data
         })
-        console.log(this.state)
     }
 
 
@@ -68,7 +76,8 @@ class ForgotPassword extends React.Component{
                     [
                         this.state.answerCorrect ?
                             <ChangePassword
-                                passwordChange={this.authorizeChange}
+                                handleChange={this.handleChange}
+                                authorizeChange={this.authorizeChange}
                                 {...this.state}
                             />
                             :

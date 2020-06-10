@@ -36,6 +36,17 @@ router.route('/authorizeChange').post(async (req,res) => {
 
     }
 
+});
+
+router.route('/newPassword').put(async (req,res) => {
+    res.send("hello")
+    const salt = await bcrypt.genSalt();
+    const newPassword = await bcrypt.hash(req.body.password, salt);
+    const email = req.body.email;
+    const user = await User.find({email: email})
+    user[0].password = newPassword;
+    user[0].save();
+    res.send(true)
 })
 
 router.route('/add').post(async (req,res) => {
