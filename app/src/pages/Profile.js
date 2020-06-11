@@ -138,9 +138,9 @@ class Profile extends React.Component {
                 <Table.HeaderCell>Password</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-
-            <Table.Body>
 -- Import Accounts Here --
+            <Table.Body>
+
             </Table.Body>
           </Table>
         </div>
@@ -152,4 +152,4 @@ class Profile extends React.Component {
 export default Profile
 
 
-/* {this.state.data.map((account) => <AccountItem key={account._id} position={account}/>)} */
+/* {this.state.data.map((account) => <ProfileComponent key={account._id} position={account}/>)} */
