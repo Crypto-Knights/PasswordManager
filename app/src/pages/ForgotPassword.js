@@ -5,6 +5,9 @@ import RequestForgotPassword from "../components/RequestForgotPassword";
 import GetQuestion from "../api/user/GetQuestion";
 import axios from 'axios'
 import ChangePassword from "../components/ChangePassword";
+import Message from "semantic-ui-react/dist/commonjs/collections/Message";
+import {Grid} from "semantic-ui-react";
+import {Redirect} from "react-router-dom";
 
 class ForgotPassword extends React.Component{
 
@@ -18,7 +21,9 @@ class ForgotPassword extends React.Component{
             gotQuestion: false,
             answerCorrect: false,
             passwordOne: '',
-            passwordTwo: ''
+            passwordTwo: '',
+            errMsg: '',
+            redirectToLogin: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.getQuestion = this.getQuestion.bind(this);
@@ -26,15 +31,23 @@ class ForgotPassword extends React.Component{
         this.authorizeChange = this.authorizeChange.bind(this);
     }
     async authorizeChange() {
-        const newUserPassword = {
-            email: this.state.email,
-            password: this.state.passwordOne
-        };
-        const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword)
-        if(!response) {
-            console.log("error in server")
+        if(this.state.passwordOne !== this.state.passwordTwo) {
+            this.setState({
+                errMsg: "The password do not match"
+            })
         } else {
-            console.log("successful change")
+            const newUserPassword = {
+                email: this.state.email,
+                password: this.state.passwordOne
+            };
+            const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword)
+            if (!response) {
+                console.log("error in server")
+            } else {
+                this.setState({
+                    redirectToLogin: response
+                })
+            }
         }
     }
 
@@ -47,6 +60,11 @@ class ForgotPassword extends React.Component{
         this.setState({
             answerCorrect: response.data
         })
+        if(!this.state.answerCorrect) {
+            this.setState({
+                errMsg: "The answer was incorrect"
+            })
+        }
     }
 
 
@@ -58,20 +76,34 @@ class ForgotPassword extends React.Component{
                 questionOne: question.data,
                 gotQuestion: true
             })
+        } else {
+            this.setState({
+                errMsg: "No user is Associated with that email"
+            })
         }
     }
 
     handleChange(event) {
         const {name, value} = event.target;
         this.setState({
-            [name]: value
+            [name]: value,
+            errMsg: ''
         })
     }
 
     render() {
+        if(this.state.redirectToLogin) {
+            return <Redirect to="../" />
+        }
+
         return (
             <div>
                 <Navbar/>
+                <Grid textAlign="center" verticalAlign="middle" centered columns={4} style={{marginTop: '20px'}}>
+                    <Grid.Column>
+                {this.state.errMsg ? <Message error>{this.state.errMsg}</Message> : null}
+                    </Grid.Column>
+                </Grid>
                 {this.state.gotQuestion ?
                     [
                         this.state.answerCorrect ?
