@@ -24,13 +24,26 @@ const testTableData = [
 //todo: Is user authorized to access profile page? if not, redirect back to login page
 
 class Profile extends React.Component {
+
+  async handleLogout() {
+    LogoutRequest();
+  }
   constructor(props) {
     super(props);
 
     this.state = {
-      password: { length: 11, data: "" }
+      column: null,
+      data: testTableData,
+      direction: null,
+      accountName: "",
+      userName: "",
+      password: "",
+      errorMsg: "",
+      redirect: false,
+      passwordl: { length: 11, data: "" }
     };
-    this.handleLogout = this.handleLogout.bind(this)
+    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -38,26 +51,66 @@ class Profile extends React.Component {
   }
 
   setLength = ({ value }) => {
-    this.setState(({ progress, password }) => ({
-      password: { ...password, length: value }
+    this.setState(({ progress, passwordl }) => ({
+      passwordl: { ...passwordl, length: value }
     }), () => this.createPassword());
   };
-
-  async handleLogout() {
-    LogoutRequest();
-  }
 
   createPassword = () => {
     let a = "",
         b = "abcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*(),.?ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        c = this.state.password.length;
-    for(let x = 0; x < c; x++) {
+        c = this.state.passwordl.length;
+    for (let x = 0; x < c; x++) {
       a += b[Math.floor(Math.random() * b.length)];
     }
     this.setState(state => ({
-      password: { ...state.password, data: a }
+      passwordl: { ...state.passwordl, data: a }
     }));
   };
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+      errorMsg: null
+    })
+
+  }
+
+  handleSubmit = async () => {
+    const accountObj = this.state;
+    const fieldError = FieldErrorCheck(accountObj);
+    if (fieldError) {
+      await this.setState({
+        errorMsg: fieldError
+      });
+      console.log(this.state.errorMsg)
+    } else {
+      createAccount(accountObj);
+      this.setState({
+        redirect: true
+      })
+    }
+  };
+
+  handleSort = (clickedColumn) => () => {
+    const { column, data, direction } = this.state
+
+    if (column !== clickedColumn) {
+      this.setState({
+        column: clickedColumn,
+        data: _.sortBy(data, [clickedColumn]),
+        direction: 'ascending',
+      })
+
+      return
+    }
+
+    this.setState({
+      data: data.reverse(),
+      direction: direction === 'ascending' ? 'descending' : 'ascending',
+    })
+  }
 
   render() {
 
