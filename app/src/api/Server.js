@@ -62,6 +62,9 @@ app.use('/users', usersRouter);
 const jwtLogin = require('./routes/jwtToken');
 app.use('/login', jwtLogin);
 
+const accountsRouter = require('./routes/accounts');
+app.use('/accounts', accountsRouter);
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 });
