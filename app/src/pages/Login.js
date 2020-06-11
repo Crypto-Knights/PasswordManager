@@ -32,9 +32,9 @@ class Login extends React.Component {
 
     async handleSubmit() {
         const loginInfo = this.state;
-
+        const response = await LoginRequest(loginInfo)
         this.setState({
-            isLogged: await LoginRequest(loginInfo)
+            isLogged: response
         });
         if(!this.state.isLogged) {
             this.setState((prevState) => {return {
@@ -65,6 +65,7 @@ class Login extends React.Component {
                     {...this.state}
                 />
             </div>
+
         )
     }
 

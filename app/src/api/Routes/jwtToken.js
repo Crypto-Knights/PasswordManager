@@ -4,6 +4,8 @@ const router = require('express').Router();
 const generateAccessToken = require('../user/generateAccessToken');
 const authenticateToken = require('../user/authenticateToken');
 const passport = require('passport');
+let UserToken = require('../Model/token.model');
+
 
 
 router.route('/logout').delete((req,res) => {
@@ -29,8 +31,11 @@ router.post('/',  passport.authenticate('local'), (req, res) => {
     const email = req.body.email;
     const user = {name: email};
     const accessToken = generateAccessToken(user);
+    const userToken = new UserToken ({
+        email: email,
+        accessToken: accessToken
+    });
     const refreshToken = jwt.sign(user, process.env.REFRECH_TOKEN_SECRET);
-    refreshTokens.push(refreshToken);
     res.json({accessToken: accessToken, refreshToken: refreshToken})
 });
 

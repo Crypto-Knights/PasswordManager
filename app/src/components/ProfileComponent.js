@@ -6,33 +6,37 @@ function ProfileComponent(props) {
   return (
 
           <Grid.Column>
-            <Form>
+            <Form onSubmit={props.handleSubmit}>
               <Form.Input
                   icon='briefcase'
                   iconPosition='left'
-                  value={props.account}
+                  value={props.accountName}
                   onChange={props.handleChange}
+                  name="accountName"
                   label='Account Name'
                   placeholder='Account Name'
               />
               <Form.Input
                   icon='user'
                   iconPosition='left'
-                  value={props.username}
+                  value={props.userName}
                   onChange={props.handleChange}
                   label='Username'
+                  name="userName"
                   placeholder='Username'
               />
 
               <Form.Input
                   icon='lock'
                   iconPosition='left'
-                  label='Password'
-                  type='password'
-                  placeholder="*********"
+                  placeholder='Password'
+                  value={props.password}
+                  name="password"
+                  onChange={props.handleChange}
+                  type="password"
               />
 
-              <Button content='Save' primary />
+              <Button type='submit'>Submit</Button>
             </Form>
           </Grid.Column>
 

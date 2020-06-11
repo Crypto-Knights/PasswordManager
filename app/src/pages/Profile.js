@@ -1,3 +1,8 @@
+import React, { Component } from 'react'
+import _ from 'lodash'
+import Navbar from "../components/Navbar";
+import ProfileComponent from '../components/ProfileComponent';
+import Redirect from "react-router-dom/es/Redirect";
 import {
   Divider,
   Grid, Header,
@@ -5,43 +10,38 @@ import {
   MessageHeader,
   MessageItem,
   MessageList,
-  Segment, Table
+  Segment, Table,
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
-import {Redirect} from "react-router-dom";
 import IsLoggedIn from "../api/IsLoggedIn";
-import React, { Component } from 'react'
-import _ from 'lodash'
-import Navbar from "../components/Navbar";
-import ProfileComponent from '../components/ProfileComponent';
+import createAccount from "../api/account/createAccount";
 import FieldErrorCheck from '../components/FieldErrorCheck';
+import axios from "axios"
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
   { taccount: '* Instagram', tusername: '* You', tpassword: '* 2Ws@' },
-]
-//todo: Is user authorized to access profile page? if not, redirect back to login page
+];
 
 class Profile extends React.Component {
 
-  async handleLogout() {
-    LogoutRequest();
-  }
   constructor(props) {
     super(props);
 
     this.state = {
+      password: "",
       column: null,
       data: testTableData,
       direction: null,
       accountName: "",
       userName: "",
-      password: "",
       errorMsg: "",
       redirect: false,
       passwordl: { length: 11, data: "" }
     };
+    this.handleLogout = this.handleLogout.bind(this)
+
     this.handleChange = this.handleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -55,6 +55,10 @@ class Profile extends React.Component {
       passwordl: { ...passwordl, length: value }
     }), () => this.createPassword());
   };
+
+  async handleLogout() {
+    LogoutRequest();
+  }
 
   createPassword = () => {
     let a = "",
@@ -78,19 +82,14 @@ class Profile extends React.Component {
   }
 
   handleSubmit = async () => {
-    const accountObj = this.state;
-    const fieldError = FieldErrorCheck(accountObj);
-    if (fieldError) {
-      await this.setState({
-        errorMsg: fieldError
-      });
-      console.log(this.state.errorMsg)
-    } else {
-      createAccount(accountObj);
-      this.setState({
-        redirect: true
-      })
-    }
+    const accountObj = {
+      accountName: this.state.accountName,
+      password: this.state.password,
+      userName: this.state.userName,
+      token: localStorage.getItem('userToken')
+    };
+    console.log(accountObj)
+    createAccount(accountObj)
   };
 
   handleSort = (clickedColumn) => () => {
@@ -110,10 +109,14 @@ class Profile extends React.Component {
       data: data.reverse(),
       direction: direction === 'ascending' ? 'descending' : 'ascending',
     })
-  }
+  };
 
   render() {
+    const { column, data, direction } = this.state;
 
+    if (this.state.redirect) {
+      return <Redirect to="../"/>
+    }
     return (
         <div>
           <Navbar/>
@@ -193,3 +196,6 @@ class Profile extends React.Component {
 
 
 export default Profile
+
+
+/* {this.state.data.map((account) => <ProfileComponent key={account._id} position={account}/>)} */

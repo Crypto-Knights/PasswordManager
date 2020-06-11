@@ -5,9 +5,16 @@ import axios from "axios"
  */
 async function LoginRequest(req) {
     try {
-        return (await axios.post("http://localhost:5000/login", req));
-    } catch (e) {
-        return false
+        const response = await axios.post("http://localhost:5000/login", req)
+        console.log(response.data.accessToken)
+        localStorage.setItem('userToken', response.data.accessToken)
+        if (response) {
+            return true
+        }
+    }
+        catch (e)
+        {
+            return false
     }
 
 
