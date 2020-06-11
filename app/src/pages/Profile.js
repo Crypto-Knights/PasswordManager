@@ -1,17 +1,16 @@
 import React from "react"
 import Navbar from "../components/Navbar";
 import ProfileComponent from '../components/ProfileComponent';
-import FormComponent from "../components/FormComponent";
 import createProfile from "../api/user/createProfile";
 import Redirect from "react-router-dom/es/Redirect";
 import {
   Divider,
-  Grid,
+  Grid, Header,
   Message,
   MessageHeader,
   MessageItem,
   MessageList,
-  Segment
+  Segment, Table
 } from 'semantic-ui-react'
 import FieldErrorCheck from '../components/FieldErrorCheck';
 
@@ -126,6 +125,23 @@ class Profile extends React.Component {
 
             <Divider vertical> </Divider>
           </Segment>
+          <Header as='h1' textAlign='center'>
+            Current Accounts</Header>
+          <Table sortable celled fixed singleLine>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>
+                  Account
+                </Table.HeaderCell>
+                <Table.HeaderCell>Username</Table.HeaderCell>
+                <Table.HeaderCell>Password</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+
+            <Table.Body>
+--Populate Accounts here --
+            </Table.Body>
+          </Table>
         </div>
     );
   }
@@ -133,3 +149,6 @@ class Profile extends React.Component {
 
 
 export default Profile
+
+
+/* {this.state.data.map((account) => <AccountItem key={account._id} position={account}/>)} */
