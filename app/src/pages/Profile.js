@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import Navbar from "../components/Navbar";
-import createAccount from "../api/account/createAccount";
 import ProfileComponent from '../components/ProfileComponent';
 import Redirect from "react-router-dom/es/Redirect";
 import {
@@ -15,16 +14,15 @@ import {
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
-import {Redirect} from "react-router-dom";
 import IsLoggedIn from "../api/IsLoggedIn";
-
-//todo: Is user authorized to access profile page? if not, redirect back to login page
+import createAccount from "../api/account/createAccount";
 import FieldErrorCheck from '../components/FieldErrorCheck';
+import axios from "axios"
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
   { taccount: '* Instagram', tusername: '* You', tpassword: '* 2Ws@' },
-]
+];
 
 class Profile extends React.Component {
 
@@ -32,14 +30,12 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
-      password: { length: 11, data: "" },
-
+      password: "",
       column: null,
       data: testTableData,
       direction: null,
       accountName: "",
       userName: "",
-      password: "",
       errorMsg: "",
       redirect: false,
       passwordl: { length: 11, data: "" }
@@ -86,19 +82,14 @@ class Profile extends React.Component {
   }
 
   handleSubmit = async () => {
-    const accountObj = this.state;
-    const fieldError = FieldErrorCheck(accountObj);
-    if (fieldError) {
-      await this.setState({
-        errorMsg: fieldError
-      });
-      console.log(this.state.errorMsg)
-    } else {
-      createAccount(accountObj);
-      this.setState({
-        redirect: true
-      })
-    }
+    const accountObj = {
+      accountName: this.state.accountName,
+      password: this.state.password,
+      userName: this.state.userName,
+      token: localStorage.getItem('userToken')
+    };
+    console.log(accountObj)
+    createAccount(accountObj)
   };
 
   handleSort = (clickedColumn) => () => {
@@ -118,10 +109,10 @@ class Profile extends React.Component {
       data: data.reverse(),
       direction: direction === 'ascending' ? 'descending' : 'ascending',
     })
-  }
+  };
 
   render() {
-    const { column, data, direction } = this.state
+    const { column, data, direction } = this.state;
 
     if (this.state.redirect) {
       return <Redirect to="../"/>

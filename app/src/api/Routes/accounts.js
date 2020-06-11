@@ -3,10 +3,11 @@ let Account = require('../Model/account.model');
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
+const authenticateToken = require('../user/authenticateToken')
 
 router.route('/getAccounts').get((req,res) => {
     Account.find()
-        .then(accounts => res.json(accounts))
+        .then(accounts => res.send(accounts))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
@@ -27,10 +28,6 @@ router.post('/profile',  passport.authenticate('local'), (req, res) => {
 //     res.json({accessToken: accessToken})
 // })
 
-//todo follow steps on https://www.youtube.com/watch?v=mbsmsi7l3r4 - 10:48
-function authenticateToken(req,res,nex) {
-
-}
 
 router.route('/:idAccount').get((req,res) => {
     Account.findById(req.params.id)
@@ -38,23 +35,30 @@ router.route('/:idAccount').get((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/addAccount').post(async (req,res) => {
+router.post('/addAccount', async (req,res) => {
     try {
+        let email;
+        jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+            if(err){
+                res.sendStatus(403);
+            } else {
+                email = authData.name
+            }
+        });
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        const accountName = req.body.account
-        const password = hashedPassword
-        const userName = req.body.username
-
+        const accountName = req.body.accountName;
+        const password = hashedPassword;
+        const userName = req.body.userName;
         const newAccount = new Account ({
-            account,
-            username,
+            email,
+            accountName,
+            userName,
             password,
-        })
+        });
         newAccount.save()
         .then(() => res.json('Account added!'))
         .catch(err => res.status(400).json('Error: ' + err));
-        // User.push(newUser)
 
     } catch {
         res.status(500).json()

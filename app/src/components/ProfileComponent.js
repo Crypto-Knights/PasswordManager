@@ -6,12 +6,13 @@ function ProfileComponent(props) {
   return (
 
           <Grid.Column>
-            <Form>
+            <Form onSubmit={props.handleSubmit}>
               <Form.Input
                   icon='briefcase'
                   iconPosition='left'
                   value={props.accountName}
                   onChange={props.handleChange}
+                  name="accountName"
                   label='Account Name'
                   placeholder='Account Name'
               />
@@ -21,6 +22,7 @@ function ProfileComponent(props) {
                   value={props.userName}
                   onChange={props.handleChange}
                   label='Username'
+                  name="userName"
                   placeholder='Username'
               />
 
