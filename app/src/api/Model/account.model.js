@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema;
 
-const profileSchema = new Schema({
+const accountSchema = new Schema({
         accountName: {type: String, require: true, trim: true, minlength: 3},
         userName: {type: String, require: true, trim: true, minlength: 3},
         password: {type: String, require: true, trim: true, minlength: 3},
@@ -12,7 +12,7 @@ const profileSchema = new Schema({
     }
 );
 
-const Profile = mongoose.model('Profile', profileSchema)
+const Account = mongoose.model('Account', accountSchema)
 
-module.exports = Profile;
+module.exports = Account;
 

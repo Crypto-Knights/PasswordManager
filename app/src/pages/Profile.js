@@ -1,7 +1,8 @@
 import React from "react"
 import Navbar from "../components/Navbar";
+import createAccount from "../api/account/createAccount";
 import ProfileComponent from '../components/ProfileComponent';
-import createProfile from "../api/user/createProfile";
+import AccountItem from '../components/AccountItem';
 import Redirect from "react-router-dom/es/Redirect";
 import {
   Divider,
@@ -63,15 +64,15 @@ class Profile extends React.Component {
   }
 
   handleSubmit = async () => {
-    const profileObj = this.state;
-    const fieldError = FieldErrorCheck(profileObj);
+    const accountObj = this.state;
+    const fieldError = FieldErrorCheck(accountObj);
     if (fieldError) {
       await this.setState({
         errorMsg: fieldError
       });
       console.log(this.state.errorMsg)
     } else {
-      createProfile(profileObj);
+      createAccount(accountObj);
       this.setState({
         redirect: true
       })
@@ -127,7 +128,7 @@ class Profile extends React.Component {
           </Segment>
           <Header as='h1' textAlign='center'>
             Current Accounts</Header>
-          <Table sortable celled fixed singleLine>
+          <Table celled fixed singleLine>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>
@@ -139,7 +140,7 @@ class Profile extends React.Component {
             </Table.Header>
 
             <Table.Body>
---Populate Accounts here --
+-- Import Accounts Here --
             </Table.Body>
           </Table>
         </div>
