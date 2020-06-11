@@ -42,9 +42,9 @@ router.route('/addAccount').post(async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        const account = req.body.account
+        const accountName = req.body.account
         const password = hashedPassword
-        const username = req.body.username
+        const userName = req.body.username
 
         const newAccount = new Account ({
             account,
