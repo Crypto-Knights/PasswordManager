@@ -58,6 +58,9 @@ initializePassport(passport, getUserByEmail, getUserById);
 const usersRouter = require('./routes/users');
 app.use('/users', usersRouter);
 
+const accountsRouter = require('./routes/accounts');
+app.use('/accounts', accountsRouter);
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)
 });
