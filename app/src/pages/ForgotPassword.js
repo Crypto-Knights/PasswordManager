@@ -24,12 +24,14 @@ class ForgotPassword extends React.Component{
             passwordTwo: '',
             errMsg: '',
             redirectToLogin: false
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.getQuestion = this.getQuestion.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.authorizeChange = this.authorizeChange.bind(this);
     }
+
+    //handles component ChangePassword.js
     async authorizeChange() {
         if(this.state.passwordOne !== this.state.passwordTwo) {
             this.setState({
@@ -40,26 +42,30 @@ class ForgotPassword extends React.Component{
                 email: this.state.email,
                 password: this.state.passwordOne
             };
-            const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword)
-            if (!response) {
-                console.log("error in server")
-            } else {
-                this.setState({
-                    redirectToLogin: response
-                })
+            try {
+                const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword);
+                console.log(response)
+                if (response) {
+                    this.setState({
+                        redirectToLogin: response.data
+                    })
+                }
+            } catch (e) {
+                throw new e
             }
         }
     }
 
+    //handles component SecurityQuestion.js
     async changePassword() {
         const userAnswer = {
             answerOne: this.state.answerOne,
             email: this.state.email
-        }
-        const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer)
+        };
+        const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer);
         this.setState({
             answerCorrect: response.data
-        })
+        });
         if(!this.state.answerCorrect) {
             this.setState({
                 errMsg: "The answer was incorrect"
@@ -68,6 +74,7 @@ class ForgotPassword extends React.Component{
     }
 
 
+    //handles component RequestForgotPassword.js
     async getQuestion() {
         const email = {email: this.state.email};
         const question = await GetQuestion(email);
