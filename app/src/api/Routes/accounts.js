@@ -10,13 +10,13 @@ router.route('/getAccounts').get((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/profile').get((req,res) => {
+router.route('/accounts').get((req,res) => {
     console.log("accounts loaded")
 })
 
 
 
-router.post('/login',  passport.authenticate('local'), (req, res) => {
+router.post('/profile',  passport.authenticate('local'), (req, res) => {
     res.send(true)
 });
 
@@ -32,13 +32,13 @@ function authenticateToken(req,res,nex) {
 
 }
 
-router.route('/:id').get((req,res) => {
+router.route('/:idAccount').get((req,res) => {
     Account.findById(req.params.id)
         .then(users => res.json(users))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post(async (req,res) => {
+router.route('/addAccount').post(async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
