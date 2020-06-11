@@ -10,7 +10,7 @@ function ProfileNavBar(props) {
             </Menu.Item>
 
             <Menu.Item as={NavLink} exact to="/">
-                <Button onClick={props.onClick}>Log-out</Button>
+                <Button onClick={props.handleLogout}>Log-out</Button>
             </Menu.Item>
         </Menu>
     )

@@ -4,6 +4,7 @@ import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import React from "react";
 import Footer from "./components/Footer";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/" exact component={Login}/>
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/Profile" component={Profile}/>
+                <Route path="/ForgotPassword" component={ForgotPassword}/>
         </Router>
 
     )

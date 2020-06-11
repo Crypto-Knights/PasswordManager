@@ -24,7 +24,7 @@ class Profile extends React.Component {
     this.state = {
       password: { length: 11, data: "" }
     };
-    this.onClick = this.onClick.bind(this)
+    this.handleLogout = this.handleLogout.bind(this)
   }
 
   componentDidMount() {
@@ -37,7 +37,7 @@ class Profile extends React.Component {
     }), () => this.createPassword());
   };
 
-  async onClick() {
+  async handleLogout() {
     LogoutRequest();
   }
 
@@ -57,7 +57,7 @@ class Profile extends React.Component {
 
     return (
     <div>
-      <ProfileNavBar onClick={this.onClick}/>
+      <ProfileNavBar handleLogout={this.handleLogout}/>
       <Segment placeholder>
         <Grid columns={2} relaxed='very' stackable>
           <Grid.Column>

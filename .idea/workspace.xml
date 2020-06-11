@@ -9,6 +9,9 @@
       <change beforePath="$PROJECT_DIR$/app/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/Navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/user/passport-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/passport-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2050,8 +2053,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="7367000" />
-      <workItem from="1591828219400" duration="2651000" />
+      <workItem from="1591752215225" duration="21526000" />
     </task>
     <servers />
   </component>
@@ -2123,10 +2125,10 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="660" y="-822" key="RollbackChangesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591173915329" />
-    <state x="461" y="-901" key="SettingsEditor" timestamp="1591606038411">
+    <state x="461" y="-901" key="SettingsEditor" timestamp="1591761616021">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="461" y="-901" key="SettingsEditor/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591606038411" />
+    <state x="461" y="-901" key="SettingsEditor/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591761616021" />
     <state x="1271" y="-708" key="com.intellij.ide.util.TipDialog" timestamp="1591082360449">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>

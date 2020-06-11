@@ -2,7 +2,7 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const router = require('express').Router();
 const generateAccessToken = require('../user/generateAccessToken');
-const authenticateToken = require('../user/authenticateToken')
+const authenticateToken = require('../user/authenticateToken');
 const passport = require('passport');
 
 

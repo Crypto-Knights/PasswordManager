@@ -14,7 +14,9 @@ class Login extends React.Component {
             email: "",
             password: "",
             isLogged: false,
-            errorMsg: ""
+            errorMsg: "",
+            negDOS: 0,
+            display: true
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,8 +37,16 @@ class Login extends React.Component {
             isLogged: await LoginRequest(loginInfo)
         });
         if(!this.state.isLogged) {
+            this.setState((prevState) => {return {
+                errorMsg: "Email or password was incorrect",
+                negDOS: prevState.negDOS +1
+            }
+            })
+        }
+        if(this.state.negDOS >= 3) {
             this.setState({
-                errorMsg: "Email or password was incorrect"
+                display: false,
+                errorMsg: "Too many failed attempts, did you forget your password?"
             })
         }
     }
@@ -45,6 +55,7 @@ class Login extends React.Component {
         if(this.state.isLogged) {
             return <Redirect to="../Profile" />
         }
+
         return (
             <div>
                 <Navbar/>
