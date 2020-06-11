@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import ProfileComponent from '../components/ProfileComponent';
 import {
   Divider,
-  Grid,
+  Grid, Header,
   Message,
   MessageHeader,
   MessageItem,
   MessageList,
-  Segment
+  Segment, Table
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
@@ -56,50 +56,79 @@ class Profile extends React.Component {
   render() {
 
     return (
-    <div>
-      <ProfileNavBar handleLogout={this.handleLogout}/>
-      <Segment placeholder>
-        <Grid columns={2} relaxed='very' stackable>
-          <Grid.Column>
-            <ProfileComponent
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSubmit}
-                {...this.state}
-            />
-          </Grid.Column>
+        <div>
+          <Navbar/>
+          <Segment placeholder>
+            <Grid columns={2} relaxed='very' stackable>
+              <Grid.Column>
+                <ProfileComponent
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                    {...this.state}
+                />
+              </Grid.Column>
 
-          <Grid.Column verticalAlign='middle'>
-            <div className="generator">
-              <h1 className="generator-pass">{ this.state.password.data }</h1>
-              <div className="generator-strong">
-                <label>
-                  <input
-                      type="range"
-                      min="6"
-                      max="16"
-                      defaultValue={ this.state.password.length }
-                      onChange={ e => this.setLength(e.target) }
-                  />
-                  { this.state.password.length }
-                </label>
+              <Grid.Column verticalAlign='middle'>
+                <div className="generator">
+                  <h1 className="generator-pass">{this.state.passwordl.data}</h1>
+                  <div className="generator-strong">
+                    <label>
+                      <input
+                          type="range"
+                          min="6"
+                          max="16"
+                          defaultValue={this.state.passwordl.length}
+                          onChange={e => this.setLength(e.target)}
+                      />
+                      {this.state.passwordl.length}
+                    </label>
 
-              </div>
-              <Message size="tiny">
-                <MessageHeader>Password Generator</MessageHeader>
-                <MessageList>
-                  <MessageItem>
-                    Slide bar for 6 to 16 characters in length
-                  </MessageItem>
-                </MessageList>
-              </Message>
-            </div>
-          </Grid.Column>
-        </Grid>
+                  </div>
+                  <Message size="tiny">
+                    <MessageHeader>Password Generator</MessageHeader>
+                    <MessageList>
+                      <MessageItem>
+                        Slide bar for 6 to 16 characters in length
+                      </MessageItem>
+                    </MessageList>
+                  </Message>
+                </div>
+              </Grid.Column>
+            </Grid>
 
-        <Divider vertical> </Divider>
-      </Segment>
-    </div>
-  );
+            <Divider vertical> </Divider>
+          </Segment>
+
+          <Header as='h1' textAlign='center'>
+            Current Accounts (* Test Data)</Header>
+          <Table sortable celled fixed >
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell sorted={column === 'taccount' ? direction : null}
+                                  onClick={this.handleSort('taccount')}>
+                  Account
+                </Table.HeaderCell>
+                <Table.HeaderCell sorted={column === 'tusername' ? direction : null}
+                                  onClick={this.handleSort('tusername')}>
+                  Username
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  Password
+                </Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {_.map(data, ({ taccount, tusername, tpassword }) => (
+                  <Table.Row key={taccount}>
+                    <Table.Cell>{taccount}</Table.Cell>
+                    <Table.Cell>{tusername}</Table.Cell>
+                    <Table.Cell>{tpassword}</Table.Cell>
+                  </Table.Row>
+              ))}
+            </Table.Body>
+          </Table>
+        </div>
+    );
   }
 }
 
