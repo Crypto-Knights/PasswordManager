@@ -1,4 +1,5 @@
-import React from "react"
+import React, { Component } from 'react'
+import _ from 'lodash'
 import Navbar from "../components/Navbar";
 import createAccount from "../api/account/createAccount";
 import ProfileComponent from '../components/ProfileComponent';
@@ -10,9 +11,14 @@ import {
   MessageHeader,
   MessageItem,
   MessageList,
-  Segment, Table
+  Segment, Table,
 } from 'semantic-ui-react'
 import FieldErrorCheck from '../components/FieldErrorCheck';
+
+const testTableData = [
+  { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
+  { taccount: '* Instagram', tusername: '* You', tpassword: '* 2Ws@' },
+]
 
 class Profile extends React.Component {
 
@@ -20,6 +26,9 @@ class Profile extends React.Component {
     super(props);
 
     this.state = {
+      column: null,
+      data: testTableData,
+      direction: null,
       accountName: "",
       userName: "",
       password: "",
@@ -78,7 +87,28 @@ class Profile extends React.Component {
     }
   };
 
+  handleSort = (clickedColumn) => () => {
+    const { column, data, direction } = this.state
+
+    if (column !== clickedColumn) {
+      this.setState({
+        column: clickedColumn,
+        data: _.sortBy(data, [clickedColumn]),
+        direction: 'ascending',
+      })
+
+      return
+    }
+
+    this.setState({
+      data: data.reverse(),
+      direction: direction === 'ascending' ? 'descending' : 'ascending',
+    })
+  }
+
   render() {
+    const { column, data, direction } = this.state
+
     if (this.state.redirect) {
       return <Redirect to="../"/>
     }
@@ -125,21 +155,33 @@ class Profile extends React.Component {
 
             <Divider vertical> </Divider>
           </Segment>
+
           <Header as='h1' textAlign='center'>
-            Current Accounts</Header>
-          <Table celled fixed singleLine>
+            Current Accounts (* Test Data)</Header>
+          <Table sortable celled fixed >
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>
+                <Table.HeaderCell sorted={column === 'taccount' ? direction : null}
+                                                onClick={this.handleSort('taccount')}>
                   Account
                 </Table.HeaderCell>
-                <Table.HeaderCell>Username</Table.HeaderCell>
-                <Table.HeaderCell>Password</Table.HeaderCell>
+                <Table.HeaderCell sorted={column === 'tusername' ? direction : null}
+                                        onClick={this.handleSort('tusername')}>
+                  Username
+                </Table.HeaderCell>
+                <Table.HeaderCell>
+                  Password
+                </Table.HeaderCell>
               </Table.Row>
             </Table.Header>
--- Import Accounts Here --
             <Table.Body>
-
+              {_.map(data, ({ taccount, tusername, tpassword }) => (
+                  <Table.Row key={taccount}>
+                    <Table.Cell>{taccount}</Table.Cell>
+                    <Table.Cell>{tusername}</Table.Cell>
+                    <Table.Cell>{tpassword}</Table.Cell>
+                  </Table.Row>
+              ))}
             </Table.Body>
           </Table>
         </div>
