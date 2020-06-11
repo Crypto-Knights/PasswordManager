@@ -10,7 +10,7 @@ function ProfileComponent(props) {
               <Form.Input
                   icon='briefcase'
                   iconPosition='left'
-                  value={props.account}
+                  value={props.accountName}
                   onChange={props.handleChange}
                   label='Account Name'
                   placeholder='Account Name'
@@ -18,7 +18,7 @@ function ProfileComponent(props) {
               <Form.Input
                   icon='user'
                   iconPosition='left'
-                  value={props.username}
+                  value={props.userName}
                   onChange={props.handleChange}
                   label='Username'
                   placeholder='Username'
