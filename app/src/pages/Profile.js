@@ -1,6 +1,3 @@
-import React from "react"
-import Navbar from "../components/Navbar";
-import ProfileComponent from '../components/ProfileComponent';
 import {
   Divider,
   Grid, Header,
@@ -14,7 +11,16 @@ import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
 import {Redirect} from "react-router-dom";
 import IsLoggedIn from "../api/IsLoggedIn";
+import React, { Component } from 'react'
+import _ from 'lodash'
+import Navbar from "../components/Navbar";
+import ProfileComponent from '../components/ProfileComponent';
+import FieldErrorCheck from '../components/FieldErrorCheck';
 
+const testTableData = [
+  { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
+  { taccount: '* Instagram', tusername: '* You', tpassword: '* 2Ws@' },
+]
 //todo: Is user authorized to access profile page? if not, redirect back to login page
 
 class Profile extends React.Component {
