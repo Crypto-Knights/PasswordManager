@@ -2,7 +2,6 @@ import React from "react"
 import Navbar from "../components/Navbar";
 import createAccount from "../api/account/createAccount";
 import ProfileComponent from '../components/ProfileComponent';
-import AccountItem from '../components/AccountItem';
 import Redirect from "react-router-dom/es/Redirect";
 import {
   Divider,
