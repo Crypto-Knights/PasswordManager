@@ -11,6 +11,7 @@ router.route('/logout').delete((req,res) => {
     res.sendStatus(204)
 });
 
+
 router.route('/token').post((req,res) => {
     const refreshToken = req.body.token;
     if(refreshToken == null) return res.sendStatus(401);

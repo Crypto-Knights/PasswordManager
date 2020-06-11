@@ -4,6 +4,7 @@ import LoginComponent from "../components/LoginComponent";
 import LoginRequest from "../api/user/LoginRequest";
 import {Redirect} from "react-router-dom";
 import IsLoggedIn from "../api/IsLoggedIn";
+import axios from 'axios'
 
 //todo: Check if user just signed up, if so, display successful signup
 
@@ -32,7 +33,6 @@ class Login extends React.Component {
 
     async handleSubmit() {
         const loginInfo = this.state;
-
         this.setState({
             isLogged: await LoginRequest(loginInfo)
         });

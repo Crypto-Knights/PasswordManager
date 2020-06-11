@@ -68,7 +68,7 @@ class ForgotPassword extends React.Component{
         });
         if(!this.state.answerCorrect) {
             this.setState({
-                errMsg: "The answer was incorrect"
+                errMsg: "That answer was incorrect"
             })
         }
     }

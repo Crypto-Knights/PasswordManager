@@ -83,7 +83,7 @@ function LoginComponent(props) {
                             />
                         </Form.Field>
                         <Button disabled={true}>Log In</Button>
-                        <Button size='tiny'>Forgot password?</Button>
+                        <a href='/ForgotPassword'>Forgot password?</a>
 
                     </Form>}
                     </Grid.Row>
