@@ -7,13 +7,14 @@ import Footer from "./components/Footer";
 
 function App() {
     return (
-
+        <div>
         <Router>
                 <Route path="/" exact component={Login}/>
                 <Route path="/Signup" component={Signup}/>
                 <Route path="/Profile" component={Profile}/>
         </Router>
-
+          <Footer/>
+        </div>
     )
 }
 
