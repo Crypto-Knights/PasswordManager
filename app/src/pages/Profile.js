@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import _ from 'lodash'
+import React, { Component } from 'react';
+import _ from 'lodash';
 import Navbar from "../components/Navbar";
 import ProfileComponent from '../components/ProfileComponent';
 import Redirect from "react-router-dom/es/Redirect";
@@ -18,6 +18,7 @@ import IsLoggedIn from "../api/IsLoggedIn";
 import createAccount from "../api/account/createAccount";
 import FieldErrorCheck from '../components/FieldErrorCheck';
 import axios from "axios"
+import GetAccountsByEmail from "../components/GetAccountsByEmail";
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
@@ -46,8 +47,25 @@ class Profile extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.createPassword();
+    const reqAccountObj = {
+      token: localStorage.getItem('userToken')
+    };
+    if(!reqAccountObj.token) {
+      this.setState({
+        redirect: true
+      })
+    }
+    try {
+      const response = await GetAccountsByEmail(reqAccountObj);
+      const accountArray = response.data
+      console.log(accountArray)
+    } catch (e) {
+      this.setState({
+        redirect: true
+      })
+    }
   }
 
   setLength = ({ value }) => {
@@ -119,7 +137,7 @@ class Profile extends React.Component {
     }
     return (
         <div>
-          <Navbar/>
+          <ProfileNavBar/>
           <Segment placeholder>
             <Grid columns={2} relaxed='very' stackable>
               <Grid.Column>

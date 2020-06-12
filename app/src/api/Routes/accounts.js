@@ -11,29 +11,20 @@ router.route('/getAccounts').get((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/accounts').get((req,res) => {
-    console.log("accounts loaded")
+router.post('/getAccountsByEmail', async (req,res) => {
+
+    let email;
+    jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+        if(err){
+            res.sendStatus(403);
+        } else {
+            email = authData.name
+        }
+    });
+    Account.find({email: email})
+        .then(accounts => res.send(accounts))
+        .catch(err => res.status(403).json("Error: " + err))
 })
-
-
-
-router.post('/profile',  passport.authenticate('local'), (req, res) => {
-    res.send(true)
-});
-
-// router.route('/login').post((req,res) => {
-//     //Authenticate User
-//     const email = req.body.email
-//     const accessToken = jwt.sign(email, process.env.ACCESS_TOKEN_SECRET)
-//     res.json({accessToken: accessToken})
-// })
-
-
-router.route('/:idAccount').get((req,res) => {
-    Account.findById(req.params.id)
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
 
 router.post('/addAccount', async (req,res) => {
     try {
