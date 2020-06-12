@@ -4,13 +4,37 @@ const jwt = require('jsonwebtoken')
 const CryptoJS = require('crypto-js')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
-const authenticateToken = require('../user/authenticateToken')
+const authenticateToken = require('../user/authenticateToken');
+let User = require('../Model/user.model');
 
 router.route('/getAccounts').get((req,res) => {
     Account.find()
         .then(accounts => res.send(accounts))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
+router.post('/reauthorize', async (req, res) => {
+    let email;
+    jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+        if(err){
+            res.sendStatus(403);
+        } else {
+            email = authData.name
+        }
+    });
+    const user = User.find({email: email})
+    const password = req.body.password
+    try {
+        if(await bcrypt.compare(password, user[0].password)) {
+            res.send(true)
+        } else {
+            res.send(false)
+        }
+    } catch (e) {
+        return (e)
+    }
+});
+
 
 router.post('/getAccountsByEmail', async (req,res) => {
 
@@ -37,11 +61,8 @@ router.post('/addAccount', async (req,res) => {
                 email = authData.name
             }
         });
-        // const salt = await bcrypt.genSalt();
-        // const hashedPassword = await bcrypt.hash(req.body.password, salt);
         const accountName = req.body.accountName;
         const password = CryptoJS.AES.encrypt(req.body.password, process.env.SUPER_SECRET_KEY)
-        // const password = hashedPassword;
         const userName = req.body.userName;
         const newAccount = new Account ({
             email,

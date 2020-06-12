@@ -63,10 +63,9 @@ class Profile extends React.Component {
       const accountArray = response.data
 
 
-      //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,proccess.env.SUPER_SECRET_KEY)"
-      {/*const encryptedWord = CryptoJS.AES.encrypt("words", "secret")
-      console.log(CryptoJS.AES.decrypt(encryptedWord, 'secret').toString(CryptoJS.enc.Utf8))*/}
-
+      //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,process.env.SUPER_SECRET_KEY)"
+      {/*const encryptedWord = CryptoJS.AES.encrypt("words", process.env.SUPER_SECRET_KEY)
+      console.log(CryptoJS.AES.decrypt(encryptedWord, process.env.SUPER_SECRET_KEY).toString(CryptoJS.enc.Utf8))*/}
       console.log(accountArray)
     } catch (e) {
       this.setState({
