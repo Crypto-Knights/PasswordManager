@@ -14,8 +14,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/pages/Profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1406">
-              <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+            <state relative-caret-position="1921">
+              <caret line="218" lean-forward="true" selection-start-line="218" selection-end-line="218" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -115,6 +115,12 @@
       </list>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="951" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
+  </component>
   <component name="ProjectId" id="1cU1huTdFvwVCEdI8RGSr3vjl5H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -148,6 +154,13 @@
               <item name="PasswordManager" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PasswordManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PasswordManager" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="PasswordManager" type="b2602c69:ProjectViewProjectNode" />
@@ -242,7 +255,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22135417" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.02734375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -336,8 +349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/pages/Profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1406">
-          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
+        <state relative-caret-position="1921">
+          <caret line="218" lean-forward="true" selection-start-line="218" selection-end-line="218" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

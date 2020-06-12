@@ -31,7 +31,7 @@ class Profile extends React.Component {
     this.state = {
       password: "",
       column: null,
-      data: testTableData,
+      data: null,
       direction: null,
       accountName: "",
       userName: "",
@@ -58,6 +58,8 @@ class Profile extends React.Component {
     try {
       const response = await GetAccountsByEmail(reqAccountObj);
       const accountArray = response.data;
+      this.setState({ data: accountArray})
+      console.log(accountArray);
 
 
       //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,process.env.SUPER_SECRET_KEY)"
@@ -132,7 +134,7 @@ class Profile extends React.Component {
   };
 
   render() {
-    const { column, data, direction, accountArray } = this.state;
+    const { column, data, direction,} = this.state;
 
 
     if (this.state.redirect) {
@@ -183,16 +185,16 @@ class Profile extends React.Component {
           </Segment>
 
           <Header as='h1' textAlign='center'>
-            Current Accounts (* Test Data)</Header>
+            Current Accounts </Header>
           <Table sortable celled fixed >
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell sorted={column === 'taccount' ? direction : null}
-                                  onClick={this.handleSort('taccount')}>
+                <Table.HeaderCell sorted={column === 'accountName' ? direction : null}
+                                  onClick={this.handleSort('accountName')}>
                   Account
                 </Table.HeaderCell>
-                <Table.HeaderCell sorted={column === 'tusername' ? direction : null}
-                                  onClick={this.handleSort('tusername')}>
+                <Table.HeaderCell sorted={column === 'userName' ? direction : null}
+                                  onClick={this.handleSort('userName')}>
                   Username
                 </Table.HeaderCell>
                 <Table.HeaderCell>
@@ -201,8 +203,8 @@ class Profile extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {_.map(accountArray, ({ accountName, userName, password }) => (
-                  <Table.Row key={accountName}>
+              {_.map(data, ({ accountName, userName, password }) => (
+                  <Table.Row key={password}>
                     <Table.Cell>{accountName}</Table.Cell>
                     <Table.Cell>{userName}</Table.Cell>
                     <Table.Cell>{password}</Table.Cell>
