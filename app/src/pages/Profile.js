@@ -60,11 +60,7 @@ class Profile extends React.Component {
       const response = await GetAccountsByEmail(reqAccountObj);
       let accountArray = response.data;
       accountArray.forEach((prop) => prop.show = false)
-      console.log(accountArray)
       this.setState({ data: accountArray})
-
-
-
     } catch (e) {
       this.setState({
         redirect: true
