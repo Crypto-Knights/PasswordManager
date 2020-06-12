@@ -3,6 +3,11 @@ import { Button, Form, Grid } from 'semantic-ui-react'
 import '../css/style.css'
 
 function ProfileComponent(props) {
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
 
           <Grid.Column>
@@ -35,8 +40,7 @@ function ProfileComponent(props) {
                   onChange={props.handleChange}
                   type="password"
               />
-
-              <Button type='submit'>Submit</Button>
+              <Button type='submit' onClick={refreshPage}>Submit</Button>
             </Form>
           </Grid.Column>
 
