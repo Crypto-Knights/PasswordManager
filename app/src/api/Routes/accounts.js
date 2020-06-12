@@ -20,7 +20,7 @@ router.post('/reauthorize', async (req, res) => {
             email = authData.name
         }
     });
-    const user = User.find({email: email});
+    const user = await User.find({email: email});
     const password = req.body.password;
     try {
         if(await bcrypt.compare(password, user[0].password)) {

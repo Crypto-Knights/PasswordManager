@@ -18,6 +18,12 @@ import axios from "axios"
 import GetAccountsByEmail from "../components/GetAccountsByEmail";
 import CryptoJS from 'crypto-js'
 import Button from "semantic-ui-react/dist/commonjs/elements/Button";
+import Popup from "semantic-ui-react/dist/commonjs/modules/Popup";
+import useBooleanKnob from "@stardust-ui/docs-components/dist/es/knobs/useBooleanKnob";
+import Input from "semantic-ui-react/dist/commonjs/elements/Input";
+import TextArea from "semantic-ui-react/dist/commonjs/addons/TextArea";
+import Form from "semantic-ui-react/dist/commonjs/collections/Form";
+import Reauthorize from "../components/Reauthorize";
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
@@ -38,13 +44,15 @@ class Profile extends React.Component {
       userName: "",
       errorMsg: "",
       redirect: false,
-      passwordl: { length: 11, data: "" }
+      passwordl: { length: 11, data: "" },
+      authorizePassword: ''
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleShowPassword = this.handleShowPassword.bind(this);
   }
+
 
   async componentDidMount() {
     this.createPassword();
@@ -68,15 +76,37 @@ class Profile extends React.Component {
     }
   }
 
-  handleShowPassword = (data)=> {
+  handleShowPassword = async (data) => {
+    const reauthorizeObj = {
+      token: localStorage.getItem('userToken'),
+      password: this.state.authorizePassword
+    };
 
-    const tmpAccount = this.state.data
-    const accountName = data.accountName
-    const changeShow = _.find(tmpAccount, {accountName: accountName});
-    changeShow.show = true;
-    const encryptedPassword = changeShow.password
-    changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
-    this.setState({})
+    try {
+      const tmp = await Reauthorize(reauthorizeObj)
+      console.log(tmp.data)
+
+      if(tmp.data) {
+        const tmpAccount = this.state.data
+        const accountName = data.accountName
+        const changeShow = _.find(tmpAccount, {accountName: accountName});
+        changeShow.show = true;
+        const encryptedPassword = changeShow.password
+        changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
+        this.setState({
+          authorizePassword: ''
+        })
+      } else {
+        this.setState({
+          errMsg: "password was incorrect",
+          authorizePassword: ''
+        })
+      }
+    } catch (e) {
+      this.setState({
+        redirect: true
+      })
+    }
   };
 
   setLength = ({ value }) => {
@@ -216,7 +246,26 @@ class Profile extends React.Component {
                     {show ?
                         <Table.Cell>{password}</Table.Cell>
                         :
-                        <Button onClick={() => this.handleShowPassword({accountName, userName, password, show})}>Show Password</Button>
+                        <Popup
+                            on="click"
+                            trigger={<Button type="password" content='A trigger' />}
+                        // <Button onClick={() => this.handleShowPassword({accountName, userName, password, show})}>Show Password</Button>
+                        >
+                          <Form onSubmit={() => this.handleShowPassword({accountName, userName, password, show})}>
+                            <Form.Field>
+                              <label>Master Password</label>
+                              <input
+                                  placeholder='*******'
+                                  value={this.state.authorizePassword}
+                                  name='authorizePassword'
+                                  onChange={this.handleChange}
+                                  type='password'
+                                  defaultValue="password"
+                              />
+                            </Form.Field>
+                            <Button type='submit'>Submit</Button>
+                          </Form>
+                        </Popup>
                     }
                   </Table.Row>
               ))}
