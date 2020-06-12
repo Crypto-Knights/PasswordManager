@@ -132,7 +132,8 @@ class Profile extends React.Component {
   };
 
   render() {
-    const { column, data, direction } = this.state;
+    const { column, data, direction, accountArray } = this.state;
+
 
     if (this.state.redirect) {
       return <Redirect to="../"/>
@@ -200,11 +201,11 @@ class Profile extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {_.map(data, ({ taccount, tusername, tpassword }) => (
-                  <Table.Row key={taccount}>
-                    <Table.Cell>{taccount}</Table.Cell>
-                    <Table.Cell>{tusername}</Table.Cell>
-                    <Table.Cell>{tpassword}</Table.Cell>
+              {_.map(accountArray, ({ accountName, userName, password }) => (
+                  <Table.Row key={accountName}>
+                    <Table.Cell>{accountName}</Table.Cell>
+                    <Table.Cell>{userName}</Table.Cell>
+                    <Table.Cell>{password}</Table.Cell>
                   </Table.Row>
               ))}
             </Table.Body>
