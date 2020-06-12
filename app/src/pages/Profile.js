@@ -59,8 +59,6 @@ class Profile extends React.Component {
       const response = await GetAccountsByEmail(reqAccountObj);
       const accountArray = response.data;
       this.setState({ data: accountArray})
-      console.log(accountArray);
-
 
       //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,process.env.SUPER_SECRET_KEY)"
       {/*const encryptedWord = CryptoJS.AES.encrypt("words", process.env.SUPER_SECRET_KEY)
