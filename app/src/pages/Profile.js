@@ -17,6 +17,7 @@ import createAccount from "../api/account/createAccount";
 import axios from "axios"
 import GetAccountsByEmail from "../components/GetAccountsByEmail";
 import CryptoJS from 'crypto-js'
+import Button from "semantic-ui-react/dist/commonjs/elements/Button";
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
@@ -40,9 +41,9 @@ class Profile extends React.Component {
       passwordl: { length: 11, data: "" }
     };
     this.handleLogout = this.handleLogout.bind(this);
-
     this.handleChange = this.handleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleShowPassword = this.handleShowPassword.bind(this);
   }
 
   async componentDidMount() {
@@ -57,19 +58,30 @@ class Profile extends React.Component {
     }
     try {
       const response = await GetAccountsByEmail(reqAccountObj);
-      const accountArray = response.data;
+      let accountArray = response.data;
+      accountArray.forEach((prop) => prop.show = false)
+      console.log(accountArray)
       this.setState({ data: accountArray})
 
-      //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,process.env.SUPER_SECRET_KEY)"
-      {/*const encryptedWord = CryptoJS.AES.encrypt("words", process.env.SUPER_SECRET_KEY)
-      console.log(CryptoJS.AES.decrypt(encryptedWord, process.env.SUPER_SECRET_KEY).toString(CryptoJS.enc.Utf8))*/}
-      console.log(accountArray)
+
+
     } catch (e) {
       this.setState({
         redirect: true
       })
     }
   }
+
+  handleShowPassword = (data)=> {
+
+    const tmpAccount = this.state.data
+    const accountName = data.accountName
+    const changeShow = _.find(tmpAccount, {accountName: accountName});
+    changeShow.show = true;
+    const encryptedPassword = changeShow.password
+    changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
+    this.setState({})
+  };
 
   setLength = ({ value }) => {
     this.setState(({ progress, passwordl }) => ({
@@ -201,11 +213,15 @@ class Profile extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {_.map(data, ({ accountName, userName, password }) => (
+              {_.map(data, ({ accountName, userName, password, show }) => (
                   <Table.Row key={password}>
                     <Table.Cell>{accountName}</Table.Cell>
                     <Table.Cell>{userName}</Table.Cell>
-                    <Table.Cell>{password}</Table.Cell>
+                    {show ?
+                        <Table.Cell>{password}</Table.Cell>
+                        :
+                        <Button onClick={() => this.handleShowPassword({accountName, userName, password, show})}>Show Password</Button>
+                    }
                   </Table.Row>
               ))}
             </Table.Body>
