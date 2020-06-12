@@ -3,8 +3,6 @@ let Account = require('../Model/account.model');
 const jwt = require('jsonwebtoken')
 const CryptoJS = require('crypto-js')
 const bcrypt = require('bcrypt')
-const passport = require('passport')
-const authenticateToken = require('../user/authenticateToken');
 let User = require('../Model/user.model');
 
 router.route('/getAccounts').get((req,res) => {
@@ -82,17 +80,5 @@ router.post('/addAccount', async (req,res) => {
 
 });
 
-
-// server.delete('/:id', (req, res) => {
-//     const todoID = req.params.id;
-//
-//     db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err,result) => {
-//         if(err)
-//             console.log(err);
-//         else {
-//             res.json(result)
-//         }
-//     })
-// })
 
 module.exports = router
