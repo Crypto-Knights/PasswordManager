@@ -1,8 +1,8 @@
 const router = require('express').Router();
 let Account = require('../Model/account.model');
-const jwt = require('jsonwebtoken')
-const CryptoJS = require('crypto-js')
-const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken');
+const CryptoJS = require('crypto-js');
+const bcrypt = require('bcrypt');
 let User = require('../Model/user.model');
 
 router.route('/getAccounts').get((req,res) => {
@@ -20,8 +20,8 @@ router.post('/reauthorize', async (req, res) => {
             email = authData.name
         }
     });
-    const user = User.find({email: email})
-    const password = req.body.password
+    const user = User.find({email: email});
+    const password = req.body.password;
     try {
         if(await bcrypt.compare(password, user[0].password)) {
             res.send(true)
@@ -47,7 +47,7 @@ router.post('/getAccountsByEmail', async (req,res) => {
     Account.find({email: email})
         .then(accounts => res.send(accounts))
         .catch(err => res.status(403).json("Error: " + err))
-})
+});
 
 router.post('/addAccount', async (req,res) => {
     try {
@@ -60,7 +60,7 @@ router.post('/addAccount', async (req,res) => {
             }
         });
         const accountName = req.body.accountName;
-        const password = CryptoJS.AES.encrypt(req.body.password, process.env.SUPER_SECRET_KEY)
+        const password = CryptoJS.AES.encrypt(req.body.password, process.env.SUPER_SECRET_KEY);
         const userName = req.body.userName;
         const newAccount = new Account ({
             email,
@@ -81,4 +81,4 @@ router.post('/addAccount', async (req,res) => {
 });
 
 
-module.exports = router
+module.exports = router;

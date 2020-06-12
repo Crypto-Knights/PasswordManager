@@ -1,5 +1,5 @@
 import React from "react"
-import {Button, Menu, Header,Dropdown,Image} from "semantic-ui-react";
+import { Menu, Dropdown, Image} from "semantic-ui-react";
 import {NavLink} from "react-router-dom";
 
 function Navbar() {
@@ -7,7 +7,7 @@ function Navbar() {
 
       <Menu>
 
-        <Image size='ui small' circular src="/Image/Icon.png"/>
+        <Image size='tiny' circular src="/Image/Icon.png"/>
 
         <Menu.Item position="right">
           <Dropdown  icon="user" text="Login" pointing="top right" as={NavLink} exact to="/">

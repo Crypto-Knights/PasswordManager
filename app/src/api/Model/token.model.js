@@ -11,6 +11,6 @@ const tokenSchema = new Schema({
     }
 );
 
-const UserToken = mongoose.model('UserToken', tokenSchema)
+const UserToken = mongoose.model('UserToken', tokenSchema);
 
 module.exports = UserToken;

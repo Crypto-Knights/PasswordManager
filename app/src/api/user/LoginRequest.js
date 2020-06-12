@@ -5,8 +5,8 @@ import axios from "axios"
  */
 async function LoginRequest(req) {
     try {
-        const response = await axios.post("http://localhost:5000/login", req)
-        localStorage.setItem('userToken', response.data.accessToken)
+        const response = await axios.post("http://localhost:5000/login", req);
+        localStorage.setItem('userToken', response.data.accessToken);
         if (response) {
             return true
         }

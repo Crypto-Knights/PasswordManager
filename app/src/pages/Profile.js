@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import _ from 'lodash';
-import Navbar from "../components/Navbar";
 import ProfileComponent from '../components/ProfileComponent';
 import Redirect from "react-router-dom/es/Redirect";
 import {
@@ -14,9 +13,7 @@ import {
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
 import LogoutRequest from "../api/user/LogoutRequest";
-import IsLoggedIn from "../api/IsLoggedIn";
 import createAccount from "../api/account/createAccount";
-import FieldErrorCheck from '../components/FieldErrorCheck';
 import axios from "axios"
 import GetAccountsByEmail from "../components/GetAccountsByEmail";
 import CryptoJS from 'crypto-js'
@@ -42,7 +39,7 @@ class Profile extends React.Component {
       redirect: false,
       passwordl: { length: 11, data: "" }
     };
-    this.handleLogout = this.handleLogout.bind(this)
+    this.handleLogout = this.handleLogout.bind(this);
 
     this.handleChange = this.handleChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -60,7 +57,7 @@ class Profile extends React.Component {
     }
     try {
       const response = await GetAccountsByEmail(reqAccountObj);
-      const accountArray = response.data
+      const accountArray = response.data;
 
 
       //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,process.env.SUPER_SECRET_KEY)"
@@ -112,19 +109,18 @@ class Profile extends React.Component {
       userName: this.state.userName,
       token: localStorage.getItem('userToken')
     };
-    console.log(accountObj)
     createAccount(accountObj)
   };
 
   handleSort = (clickedColumn) => () => {
-    const { column, data, direction } = this.state
+    const { column, data, direction } = this.state;
 
     if (column !== clickedColumn) {
       this.setState({
         column: clickedColumn,
         data: _.sortBy(data, [clickedColumn]),
         direction: 'ascending',
-      })
+      });
 
       return
     }

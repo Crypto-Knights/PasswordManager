@@ -20,13 +20,13 @@ router.route('/getQuestion').post((req,res) => {
     User.find({email: email})
         .then(users=>res.json(users[0].questionOne))
         .catch(err => res.status(400).json('Error: ' + err))
-})
+});
 
 router.route('/authorizeChange').post(async (req,res) => {
     try {
         const answerOne = req.body.answerOne;
         const email = req.body.email;
-        const user = await User.find({email: email})
+        const user = await User.find({email: email});
         if (await bcrypt.compare(answerOne, user[0].answerOne)) {
             res.send(true)
         } else {
@@ -40,11 +40,11 @@ router.route('/authorizeChange').post(async (req,res) => {
 
 router.route('/newPassword').put(async (req,res) => {
     try {
-        res.send("hello")
+        res.send("hello");
         const salt = await bcrypt.genSalt();
         const newPassword = await bcrypt.hash(req.body.password, salt);
         const email = req.body.email;
-        const user = await User.find({email: email})
+        const user = await User.find({email: email});
         user[0].password = newPassword;
         user[0].save()
             .then(res.send(true))
@@ -52,7 +52,7 @@ router.route('/newPassword').put(async (req,res) => {
     } catch (e) {
         res.status(400).json("Error: " +  e)
     }
-})
+});
 
 router.route('/add').post(async (req,res) => {
     try {
@@ -83,17 +83,5 @@ router.route('/add').post(async (req,res) => {
     }
 });
 
-
-// server.delete('/:id', (req, res) => {
-//     const todoID = req.params.id;
-//
-//     db.getDB().collection(collection).findOneAndDelete({_id: db.getPrimaryKey(todoID)}, (err,result) => {
-//         if(err)
-//             console.log(err);
-//         else {
-//             res.json(result)
-//         }
-//     })
-// })
 
 module.exports = router;

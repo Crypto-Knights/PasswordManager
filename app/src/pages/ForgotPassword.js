@@ -24,7 +24,7 @@ class ForgotPassword extends React.Component{
             passwordTwo: '',
             errMsg: '',
             redirectToLogin: false
-        }
+        };
         this.handleChange = this.handleChange.bind(this);
         this.getQuestion = this.getQuestion.bind(this);
         this.changePassword = this.changePassword.bind(this);
@@ -40,7 +40,7 @@ class ForgotPassword extends React.Component{
                 email: this.state.email,
                 password: this.state.passwordOne
             };
-            const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword)
+            const response = await axios.put("http://localhost:5000/users/newPassword", newUserPassword);
             if (!response) {
                 console.log("error in server")
             } else {
@@ -55,11 +55,11 @@ class ForgotPassword extends React.Component{
         const userAnswer = {
             answerOne: this.state.answerOne,
             email: this.state.email
-        }
-        const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer)
+        };
+        const response = await axios.post("http://localhost:5000/users/authorizeChange", userAnswer);
         this.setState({
             answerCorrect: response.data
-        })
+        });
         if(!this.state.answerCorrect) {
             this.setState({
                 errMsg: "The answer was incorrect"

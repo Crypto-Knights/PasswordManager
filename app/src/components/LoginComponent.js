@@ -53,7 +53,7 @@ function LoginComponent(props) {
                         />
                     </Form.Field>
                     <Button>Log In</Button>
-                    <a href='/ForgotPassword'>Forgot password?</a>
+                    <a href="/ForgotPassword">Forgot Password?</a>
 
                 </Form>
                     :
