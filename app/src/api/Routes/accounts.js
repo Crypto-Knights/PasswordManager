@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let Account = require('../Model/account.model');
 const jwt = require('jsonwebtoken')
+const CryptoJS = require('crypto-js')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const authenticateToken = require('../user/authenticateToken')
@@ -36,10 +37,11 @@ router.post('/addAccount', async (req,res) => {
                 email = authData.name
             }
         });
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
+        // const salt = await bcrypt.genSalt();
+        // const hashedPassword = await bcrypt.hash(req.body.password, salt);
         const accountName = req.body.accountName;
-        const password = hashedPassword;
+        const password = CryptoJS.AES.encrypt(req.body.password, process.env.SUPER_SECRET_KEY)
+        // const password = hashedPassword;
         const userName = req.body.userName;
         const newAccount = new Account ({
             email,

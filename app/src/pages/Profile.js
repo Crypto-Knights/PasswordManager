@@ -19,6 +19,7 @@ import createAccount from "../api/account/createAccount";
 import FieldErrorCheck from '../components/FieldErrorCheck';
 import axios from "axios"
 import GetAccountsByEmail from "../components/GetAccountsByEmail";
+import CryptoJS from 'crypto-js'
 
 const testTableData = [
   { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
@@ -60,6 +61,12 @@ class Profile extends React.Component {
     try {
       const response = await GetAccountsByEmail(reqAccountObj);
       const accountArray = response.data
+
+
+      //todo for all passwords in accountArray. decrypt the passwords with "CryptoJS.AES.decrypt(ENCRYPTED PASSWORD HERE,proccess.env.SUPER_SECRET_KEY)"
+      {/*const encryptedWord = CryptoJS.AES.encrypt("words", "secret")
+      console.log(CryptoJS.AES.decrypt(encryptedWord, 'secret').toString(CryptoJS.enc.Utf8))*/}
+
       console.log(accountArray)
     } catch (e) {
       this.setState({
