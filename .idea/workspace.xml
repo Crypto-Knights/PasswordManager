@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/components/CheckPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/IsLoggedIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Model/token.model.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/LogoutRequest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/constants.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/LoginComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Signup.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +70,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="57917000" />
+      <workItem from="1591752215225" duration="58466000" />
     </task>
     <servers />
   </component>
@@ -93,10 +85,10 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="716" y="-730" key="#com.intellij.fileTypes.FileTypeChooser/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592005405060" />
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591606504019">
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592011719837">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591606504019" />
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592011719837" />
     <state width="1255" height="370" key="GridCell.Tab.0.bottom" timestamp="1591503376673">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>

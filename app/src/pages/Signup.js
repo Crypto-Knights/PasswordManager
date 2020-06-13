@@ -49,7 +49,6 @@ class Signup extends React.Component {
             await this.setState({
                 errorMsg: fieldError
             });
-            console.log(this.state.errorMsg)
         } else {
             createUser(userObj);
             this.setState({

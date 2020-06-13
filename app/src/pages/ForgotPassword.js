@@ -8,6 +8,7 @@ import ChangePassword from "../components/ChangePassword";
 import Message from "semantic-ui-react/dist/commonjs/collections/Message";
 import {Grid} from "semantic-ui-react";
 import {Redirect} from "react-router-dom";
+import CheckPassword from "../components/CheckPassword";
 
 class ForgotPassword extends React.Component{
 
@@ -31,9 +32,15 @@ class ForgotPassword extends React.Component{
         this.authorizeChange = this.authorizeChange.bind(this);
     }
     async authorizeChange() {
+        const password = {password: this.state.passwordOne}
+        const fieldError = CheckPassword(password)
         if(this.state.passwordOne !== this.state.passwordTwo) {
             this.setState({
                 errMsg: "The password do not match"
+            })
+        } else if(fieldError) {
+            this.setState({
+                errMsg: fieldError
             })
         } else {
             const newUserPassword = {
