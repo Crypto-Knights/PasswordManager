@@ -3,27 +3,33 @@ const jwt = require('jsonwebtoken');
 const router = require('express').Router();
 const generateAccessToken = require('../user/generateAccessToken');
 const passport = require('passport');
-let UserToken = require('../Model/token.model');
+let User = require('../Model/user.model');
 
 
-
-router.route('/logout').delete((req,res) => {
-    refreshTokens = refreshTokens.filter(token => token !== req.body.token);
-    res.sendStatus(204)
+router.route('/logout').post( async (req,res) => {
+    let email;
+    jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+        if(err){
+            res.sendStatus(403);
+        } else {
+            email = authData.name
+        }
+    });
+    const user = await User.find({email: email});
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1s'})
 });
 
-router.route('/token').post((req,res) => {
-    const refreshToken = req.body.token;
-    if(refreshToken == null) return res.sendStatus(401);
-    if(!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
-    jwt.verify(refreshToken, process.env.REFRECH_TOKEN_SECRET, (err, user) => {
-        if(err) return res.sendStatus(403);
-        const accessToken = generateAccessToken({name: user.email});
-        res.json({accessToken: accessToken})
-    })
-});
+// router.route('/token').post((req,res) => {
+//     const refreshToken = req.body.token;
+//     if(refreshToken == null) return res.sendStatus(401);
+//     if(!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
+//     jwt.verify(refreshToken, process.env.REFRECH_TOKEN_SECRET, (err, user) => {
+//         if(err) return res.sendStatus(403);
+//         const accessToken = generateAccessToken({name: user.email});
+//         res.json({accessToken: accessToken})
+//     })
+// });
 
-let refreshTokens = [];
 
 
 router.post('/',  passport.authenticate('local'), (req, res) => {

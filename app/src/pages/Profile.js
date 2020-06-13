@@ -45,7 +45,8 @@ class Profile extends React.Component {
       errorMsg: "",
       redirect: false,
       passwordl: { length: 11, data: "" },
-      authorizePassword: ''
+      authorizePassword: '',
+      attempts: 3
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -77,6 +78,11 @@ class Profile extends React.Component {
   }
 
   handleShowPassword = async (data) => {
+    if(this.state.attempts === 0) {
+      this.setState({
+        redirect: true
+      })
+    }
     const reauthorizeObj = {
       token: localStorage.getItem('userToken'),
       password: this.state.authorizePassword
@@ -84,8 +90,6 @@ class Profile extends React.Component {
 
     try {
       const tmp = await Reauthorize(reauthorizeObj)
-      console.log(tmp.data)
-
       if(tmp.data) {
         const tmpAccount = this.state.data
         const accountName = data.accountName
@@ -94,12 +98,15 @@ class Profile extends React.Component {
         const encryptedPassword = changeShow.password
         changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
         this.setState({
-          authorizePassword: ''
+          authorizePassword: '',
+          attempts: 3
         })
       } else {
-        this.setState({
-          errMsg: "password was incorrect",
-          authorizePassword: ''
+        this.setState((prevState) =>{return {
+          errorMsg: "password was incorrect ",
+          authorizePassword: '',
+          attempts: prevState.attempts - 1
+        }
         })
       }
     } catch (e) {
@@ -116,7 +123,11 @@ class Profile extends React.Component {
   };
 
   async handleLogout() {
-    LogoutRequest();
+    localStorage.setItem('userToken', '')
+    this.setState({
+      redirect: true,
+      token: ''
+    })
   }
 
   createPassword = () => {
@@ -152,7 +163,6 @@ class Profile extends React.Component {
 
   handleSort = (clickedColumn) => () => {
     const { column, data, direction } = this.state;
-
     if (column !== clickedColumn) {
       this.setState({
         column: clickedColumn,
@@ -173,12 +183,17 @@ class Profile extends React.Component {
     const { column, data, direction,} = this.state;
 
 
-    if (this.state.redirect) {
+    if (this.state.redirect || this.state.attempts === 0) {
+      sessionStorage.clear()
+      localStorage.clear();
       return <Redirect to="../"/>
     }
     return (
         <div>
-          <ProfileNavBar/>
+          <ProfileNavBar
+              handleLogout={this.handleLogout}
+              {...this.state}
+          />
           <Segment placeholder>
             <Grid columns={2} relaxed='very' stackable>
               <Grid.Column>
@@ -253,6 +268,14 @@ class Profile extends React.Component {
                         >
                           <Form onSubmit={() => this.handleShowPassword({accountName, userName, password, show})}>
                             <Form.Field>
+                              {
+                                this.state.errorMsg ? (
+                                    <Message negative>
+                                      {this.state.errorMsg}
+                                      {this.state.attempts} attempts remaining
+                                    </Message>
+                                ) : null
+                              }
                               <label>Master Password</label>
                               <input
                                   placeholder='*******'
