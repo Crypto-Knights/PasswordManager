@@ -10,25 +10,14 @@ import {
   MessageItem,
   MessageList,
   Segment, Table,
+    Popup, Form,
+    Button
 } from 'semantic-ui-react'
 import ProfileNavBar from "../components/ProfileNavbar";
-import LogoutRequest from "../api/user/LogoutRequest";
 import createAccount from "../api/account/createAccount";
-import axios from "axios"
 import GetAccountsByEmail from "../components/GetAccountsByEmail";
 import CryptoJS from 'crypto-js'
-import Button from "semantic-ui-react/dist/commonjs/elements/Button";
-import Popup from "semantic-ui-react/dist/commonjs/modules/Popup";
-import useBooleanKnob from "@stardust-ui/docs-components/dist/es/knobs/useBooleanKnob";
-import Input from "semantic-ui-react/dist/commonjs/elements/Input";
-import TextArea from "semantic-ui-react/dist/commonjs/addons/TextArea";
-import Form from "semantic-ui-react/dist/commonjs/collections/Form";
 import Reauthorize from "../components/Reauthorize";
-
-const testTableData = [
-  { taccount: '* Facebook', tusername: '* Yup', tpassword: '* 1Qa!' },
-  { taccount: '* Instagram', tusername: '* You', tpassword: '* 2Ws@' },
-];
 
 class Profile extends React.Component {
 
@@ -68,7 +57,7 @@ class Profile extends React.Component {
     try {
       const response = await GetAccountsByEmail(reqAccountObj);
       let accountArray = response.data;
-      accountArray.forEach((prop) => prop.show = false)
+      accountArray.forEach((prop) => prop.show = false);
       this.setState({ data: accountArray})
     } catch (e) {
       this.setState({
@@ -89,13 +78,13 @@ class Profile extends React.Component {
     };
 
     try {
-      const tmp = await Reauthorize(reauthorizeObj)
+      const tmp = await Reauthorize(reauthorizeObj);
       if(tmp.data) {
-        const tmpAccount = this.state.data
-        const accountName = data.accountName
+        const tmpAccount = this.state.data;
+        const accountName = data.accountName;
         const changeShow = _.find(tmpAccount, {accountName: accountName});
         changeShow.show = true;
-        const encryptedPassword = changeShow.password
+        const encryptedPassword = changeShow.password;
         changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
         this.setState({
           authorizePassword: '',
@@ -123,7 +112,7 @@ class Profile extends React.Component {
   };
 
   async handleLogout() {
-    localStorage.setItem('userToken', '')
+    localStorage.setItem('userToken', '');
     this.setState({
       redirect: true,
       token: ''
@@ -184,7 +173,7 @@ class Profile extends React.Component {
 
 
     if (this.state.redirect || this.state.attempts === 0) {
-      sessionStorage.clear()
+      sessionStorage.clear();
       localStorage.clear();
       return <Redirect to="../"/>
     }

@@ -1,7 +1,6 @@
 import React from "react"
 import {Grid, Header, Image, Form, Label, Button } from "semantic-ui-react";
 import Message from "semantic-ui-react/dist/commonjs/collections/Message";
-import Redirect from "react-router-dom/es/Redirect";
 
 
 function LoginComponent(props) {

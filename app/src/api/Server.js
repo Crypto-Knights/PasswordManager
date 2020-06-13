@@ -46,15 +46,6 @@ async function getUserById(id) {
     return await User.find({_id: id})
 }
 
-
-
-
-// async function getUserById(id) {
-//     console.log(id)
-//     const user = await User.find({_id: "5edb66cc97eb8d9303807ce8"})
-//     return user
-// }
-
 initializePassport(passport, getUserByEmail, getUserById);
 
 const usersRouter = require('./routes/users');

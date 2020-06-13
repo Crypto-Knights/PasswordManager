@@ -5,12 +5,6 @@ const CryptoJS = require('crypto-js');
 const bcrypt = require('bcrypt');
 let User = require('../Model/user.model');
 
-router.route('/getAccounts').get((req,res) => {
-    Account.find()
-        .then(accounts => res.send(accounts))
-        .catch(err => res.status(400).json('Error: ' + err));
-});
-
 router.post('/reauthorize', async (req, res) => {
     let email;
     jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
@@ -75,9 +69,6 @@ router.post('/addAccount', async (req,res) => {
     } catch {
         res.status(500).json()
     }
-
-
-
 });
 
 

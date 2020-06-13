@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Model/token.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Model/token.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/IsLoggedIn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Model/token.model.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/Server.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/user/LogoutRequest.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/api/user/constants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/LoginComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +78,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="57316000" />
+      <workItem from="1591752215225" duration="57917000" />
     </task>
     <servers />
   </component>

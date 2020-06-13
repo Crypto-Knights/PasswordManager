@@ -3,7 +3,6 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import React from "react";
-import Footer from "./components/Footer";
 import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
