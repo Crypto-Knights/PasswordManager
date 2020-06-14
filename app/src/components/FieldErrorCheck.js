@@ -36,6 +36,22 @@ function FieldErrorCheck(userObj) {
         return CREATE_USER_ERROR_MESSAGES.FIELD_IS_EMPTY;
     }
 
+    if (firstName.length > 64 || !firstName) {
+        return CREATE_USER_ERROR_MESSAGES.FIELD_TOO_LONG;
+    }
+    if (lastName.length > 64 || !lastName) {
+        return CREATE_USER_ERROR_MESSAGES.FIELD_TOO_LONG;
+    }
+    if (email.length > 64 || !email) {
+        return CREATE_USER_ERROR_MESSAGES.FIELD_TOO_LONG;
+    }
+    if (password.length > 64 || !password) {
+        return CREATE_USER_ERROR_MESSAGES.FIELD_TOO_LONG;
+    }
+    if (answerOne.length > 64 || !answerOne) {
+        return CREATE_USER_ERROR_MESSAGES.FIELD_TOO_LONG;
+    }
+
     /* ******* Password extra check ******* */
     if (firstName.match(PASSWORD_SPECIAL_WC)) {
         return CREATE_USER_ERROR_MESSAGES.ILLEGAL_CHARACTER_DETECTED

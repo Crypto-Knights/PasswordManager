@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/components/CheckPassword.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/FieldErrorCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/FieldErrorCheck.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +73,7 @@
       <updated>1590568480792</updated>
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
-      <workItem from="1591752215225" duration="58466000" />
+      <workItem from="1591752215225" duration="63888000" />
     </task>
     <servers />
   </component>
@@ -85,10 +88,10 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="716" y="-730" key="#com.intellij.fileTypes.FileTypeChooser/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592005405060" />
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592011719837">
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1592099506892">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592011719837" />
+    <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592099506892" />
     <state width="1255" height="370" key="GridCell.Tab.0.bottom" timestamp="1591503376673">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
@@ -117,9 +120,9 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="1271" y="-708" key="com.intellij.ide.util.TipDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1591082360449" />
-    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup" timestamp="1592003284184">
+    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup" timestamp="1592100063032">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592003284184" />
+    <state x="824" y="-839" width="670" height="676" key="search.everywhere.popup/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592100063032" />
   </component>
 </project>
