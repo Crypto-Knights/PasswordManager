@@ -252,7 +252,7 @@ class Profile extends React.Component {
                         :
                         <Popup
                             on="click"
-                            trigger={<Button type="password" content='A trigger' />}
+                            trigger={<Button type="password" content='Show Password' />}
                         // <Button onClick={() => this.handleShowPassword({accountName, userName, password, show})}>Show Password</Button>
                         >
                           <Form onSubmit={() => this.handleShowPassword({accountName, userName, password, show})}>
@@ -292,4 +292,3 @@ class Profile extends React.Component {
 export default Profile
 
 
-/* {this.state.data.map((account) => <ProfileComponent key={account._id} position={account}/>)} */
