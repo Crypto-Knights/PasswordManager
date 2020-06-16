@@ -107,7 +107,7 @@ class Profile extends React.Component {
   };
 
   setLength = ({ value }) => {
-    this.setState(({ progress, passwordl }) => ({
+    this.setState(({ passwordl }) => ({
       passwordl: { ...passwordl, length: value }
     }), () => this.createPassword());
   };

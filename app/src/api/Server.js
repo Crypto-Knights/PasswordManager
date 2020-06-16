@@ -1,4 +1,3 @@
-const axios = require('axios');
 let User = require('./Model/user.model');
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
@@ -25,8 +24,8 @@ app.use(session( {
     resave: false,
     saveUninitialized: false
 }));
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize(undefined));
+app.use(passport.session(undefined));
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true});

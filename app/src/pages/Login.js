@@ -4,11 +4,10 @@ import LoginComponent from "../components/LoginComponent";
 import LoginRequest from "../api/user/LoginRequest";
 import {Redirect} from "react-router-dom";
 
-//todo: Check if user just signed up, if so, display successful signup
 
 class Login extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             email: "",
             password: "",

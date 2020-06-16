@@ -8,7 +8,6 @@ import {CREATE_USER_ERROR_MESSAGES} from './constants'
 function CheckPassword(userObj) {
 
     const password = userObj.password;
-    console.log(password)
     const PASSWORD_SPECIAL_WC = /.*[!@#$%^&*()_\-+=?/<>;:'"\\|~`.]+.*/;
     const PASSWORD_CAPITAL_WC = /.*[A-Z]+.*/;
     const PASSWORD_NUMBER_WC = /.*[0-9]+.*/;

@@ -1,9 +1,11 @@
 import axios from "axios"
 
+/**
+ * @return {boolean}
+ */
 async function Reauthorize(req) {
     try {
-        const response = await axios.post("http://localhost:5000/accounts/reauthorize", req)
-        return response
+        return await axios.post("http://localhost:5000/accounts/reauthorize", req)
     }
     catch (e)
     {

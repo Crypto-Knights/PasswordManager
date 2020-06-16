@@ -1,9 +1,11 @@
 import axios from "axios"
 
+/**
+ * @return {boolean}
+ */
 async function GetAccountsByEmail(req) {
     try {
-        const response = await axios.post("http://localhost:5000/accounts/getAccountsByEmail", req)
-        return response
+        return await axios.post("http://localhost:5000/accounts/getAccountsByEmail", req)
     }
     catch (e)
     {

@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 let User = require('../Model/user.model');
 
 router.post('/reauthorize', async (req, res) => {
-    let email;
+    let email = '';
     jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
         if(err){
             res.sendStatus(403);
@@ -31,7 +31,7 @@ router.post('/reauthorize', async (req, res) => {
 router.post('/getAccountsByEmail', async (req,res) => {
 
     try {
-        let email;
+        let email = '';
         jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
             if (err) {
                 res.sendStatus(403);
@@ -41,7 +41,7 @@ router.post('/getAccountsByEmail', async (req,res) => {
         });
         Account.find({email: email})
             .then(accounts => res.send(accounts))
-            .catch(err => res.status(403).json("Error"))
+            .catch(err => res.status(403).json("Error: " + err))
     } catch (e) {
         res.status(403).json("You must log in first" )
     }
@@ -49,7 +49,7 @@ router.post('/getAccountsByEmail', async (req,res) => {
 
 router.post('/addAccount', async (req,res) => {
     try {
-        let email;
+        let email = '';
         jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
             if(err){
                 res.sendStatus(403);
