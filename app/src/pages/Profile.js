@@ -35,7 +35,8 @@ class Profile extends React.Component {
       redirect: false,
       passwordl: { length: 11, data: "" },
       authorizePassword: '',
-      attempts: 3
+      attempts: 3,
+      errMsg: ""
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -45,6 +46,7 @@ class Profile extends React.Component {
 
 
   async componentDidMount() {
+    try {
     this.createPassword();
     const reqAccountObj = {
       token: localStorage.getItem('userToken')
@@ -54,7 +56,6 @@ class Profile extends React.Component {
         redirect: true
       })
     }
-    try {
       const response = await GetAccountsByEmail(reqAccountObj);
       let accountArray = response.data;
       accountArray.forEach((prop) => prop.show = false);
@@ -112,11 +113,18 @@ class Profile extends React.Component {
   };
 
   async handleLogout() {
-    localStorage.setItem('userToken', '');
-    this.setState({
-      redirect: true,
-      token: ''
-    })
+    try {
+      localStorage.setItem('userToken', '');
+      this.setState({
+        redirect: true,
+        token: ''
+      })
+    } catch(e) {
+      this.setState({
+        errMsg: "did not log out correctly"
+      })
+    }
+
   }
 
   createPassword = () => {
@@ -141,13 +149,19 @@ class Profile extends React.Component {
   }
 
   handleSubmit = async () => {
-    const accountObj = {
-      accountName: this.state.accountName,
-      password: this.state.password,
-      userName: this.state.userName,
-      token: localStorage.getItem('userToken')
-    };
-    createAccount(accountObj)
+    try {
+      const accountObj = {
+        accountName: this.state.accountName,
+        password: this.state.password,
+        userName: this.state.userName,
+        token: localStorage.getItem('userToken')
+      };
+      createAccount(accountObj)
+    } catch (e) {
+      this.setState({
+        errMsg: "Failed to save credentials"
+      })
+    }
   };
 
   handleSort = (clickedColumn) => () => {
@@ -186,6 +200,13 @@ class Profile extends React.Component {
           <Segment placeholder>
             <Grid columns={2} relaxed='very' stackable>
               <Grid.Column>
+                {
+                  this.state.errMsg ? (
+                      <Message negative>
+                        {this.state.errMsg}
+                      </Message>
+                  ) : null
+                }
                 <ProfileComponent
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

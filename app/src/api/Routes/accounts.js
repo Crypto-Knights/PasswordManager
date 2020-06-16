@@ -30,17 +30,21 @@ router.post('/reauthorize', async (req, res) => {
 
 router.post('/getAccountsByEmail', async (req,res) => {
 
-    let email;
-    jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
-        if(err){
-            res.sendStatus(403);
-        } else {
-            email = authData.name
-        }
-    });
-    Account.find({email: email})
-        .then(accounts => res.send(accounts))
-        .catch(err => res.status(403).json("Error: " + err))
+    try {
+        let email;
+        jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+            if (err) {
+                res.sendStatus(403);
+            } else {
+                email = authData.name
+            }
+        });
+        Account.find({email: email})
+            .then(accounts => res.send(accounts))
+            .catch(err => res.status(403).json("Error"))
+    } catch (e) {
+        res.status(403).json("You must log in first" )
+    }
 });
 
 router.post('/addAccount', async (req,res) => {
