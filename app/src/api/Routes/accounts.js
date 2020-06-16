@@ -5,6 +5,7 @@ const CryptoJS = require('crypto-js');
 const bcrypt = require('bcrypt');
 let User = require('../Model/user.model');
 
+// noinspection JSUnresolvedFunction
 router.post('/reauthorize', async (req, res) => {
     let email = '';
     jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
@@ -28,6 +29,7 @@ router.post('/reauthorize', async (req, res) => {
 });
 
 
+// noinspection JSUnresolvedFunction
 router.post('/getAccountsByEmail', async (req,res) => {
 
     try {
@@ -47,6 +49,7 @@ router.post('/getAccountsByEmail', async (req,res) => {
     }
 });
 
+// noinspection JSUnresolvedFunction
 router.post('/addAccount', async (req,res) => {
     try {
         let email = '';

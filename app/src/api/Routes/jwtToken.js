@@ -4,6 +4,7 @@ const router = require('express').Router();
 const generateAccessToken = require('../user/generateAccessToken');
 const passport = require('passport');
 
+// noinspection JSCheckFunctionSignatures,JSUnresolvedFunction
 router.post('/',  passport.authenticate('local'), (req, res) => {
     const email = req.body.email;
     const user = {name: email};

@@ -5,7 +5,8 @@ import '../css/style.css'
 function ProfileComponent(props) {
 
   function refreshPage() {
-    window.location.reload(false);
+    // noinspection JSDeprecatedSymbols
+      window.location.reload(false);
   }
 
   return (

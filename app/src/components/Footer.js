@@ -2,6 +2,7 @@ import React from 'react';
 import { Icon } from 'semantic-ui-react';
 
 
+// noinspection JSUnusedLocalSymbols
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
   render() {
@@ -30,4 +31,3 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;

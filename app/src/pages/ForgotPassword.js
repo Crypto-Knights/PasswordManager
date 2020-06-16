@@ -12,8 +12,8 @@ import CheckPassword from "../components/CheckPassword";
 
 class ForgotPassword extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             questionOne: '',

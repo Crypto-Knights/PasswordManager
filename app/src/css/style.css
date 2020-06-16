@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 .background
 {
     background: url("../css/background.png") no-repeat center center fixed;
@@ -10,8 +12,6 @@
 
 }
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-
 html, body {
   margin:0;
   height:100%;
@@ -22,15 +22,16 @@ html, body {
   align-items:center;
   justify-content:center;
   flex-direction:column;
-  margin:0;
   position:relative;
   top:75px;
   left:50%;
-  margin-right:50%;
+  margin: 0 50% 0 0;
   transform:translate(-50%, -50%);
 }
 
+/*noinspection CssUnusedSymbol*/
 .generator-pass {
+  /*noinspection CssNoGenericFontName*/
   font-family:"Roboto";
   letter-spacing:5px;
   max-width:90vw;
@@ -42,10 +43,12 @@ html, body {
   transition:.4s;
 }
 
+/*noinspection CssUnusedSymbol*/
 .generator-pass:hover {
   color:rgba(0, 0, 0, .75);
 }
 
+/*noinspection CssUnusedSymbol*/
 .generator-strong {
   display:flex;
   align-items:center;

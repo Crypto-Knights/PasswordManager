@@ -4,6 +4,7 @@ import Message from "semantic-ui-react/dist/commonjs/collections/Message";
 
 
 function LoginComponent(props) {
+    // noinspection HtmlUnknownTarget
     return (
         <div>
         <Grid centered columns={1}>
