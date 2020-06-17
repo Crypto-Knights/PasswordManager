@@ -30,32 +30,6 @@ html, body {
   transform:translate(-50%, -50%);
 }
 
-/*noinspection ALL*/
-.generator-pass {
-  /*noinspection CssNoGenericFontName*/
-  font-family:"Roboto";
-  letter-spacing:5px;
-  max-width:90vw;
-  text-align:center;
-  display:block;
-  margin-left:auto;
-  word-wrap:break-word;
-  margin-right:auto;
-  transition:.4s;
-}
-
-/*noinspection ALL*/
-.generator-pass:hover {
-  color:rgba(0, 0, 0, .75);
-}
-
-/*noinspection ALL*/
-.generator-strong {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-}
 
 .generator-strong > label {
   display:flex;
