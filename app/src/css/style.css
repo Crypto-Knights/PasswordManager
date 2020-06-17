@@ -1,3 +1,4 @@
+/*noinspection CssUnknownTarget*/
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 .background
@@ -29,7 +30,7 @@ html, body {
   transform:translate(-50%, -50%);
 }
 
-/*noinspection CssUnusedSymbol*/
+/*noinspection ALL*/
 .generator-pass {
   /*noinspection CssNoGenericFontName*/
   font-family:"Roboto";
@@ -43,12 +44,12 @@ html, body {
   transition:.4s;
 }
 
-/*noinspection CssUnusedSymbol*/
+/*noinspection ALL*/
 .generator-pass:hover {
   color:rgba(0, 0, 0, .75);
 }
 
-/*noinspection CssUnusedSymbol*/
+/*noinspection ALL*/
 .generator-strong {
   display:flex;
   align-items:center;

@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b108dd0-9022-4be7-b3a4-5dbd4a22c607" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/accounts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/jwtToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/Routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/Routes/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/api/user/LoginRequest.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/CheckPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/CheckPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/LoginComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/LoginComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/components/ProfileComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/ProfileComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/FieldErrorCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/FieldErrorCheck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/ForgotPassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/pages/Profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/Profile.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +75,7 @@
       <workItem from="1590568485238" duration="3920000" />
       <workItem from="1590994109478" duration="98437000" />
       <workItem from="1591752215225" duration="68289000" />
-      <workItem from="1592262748165" duration="3234000" />
+      <workItem from="1592262748165" duration="5035000" />
     </task>
     <servers />
   </component>
@@ -105,10 +94,10 @@
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
     <state x="640" y="-786" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592099506892" />
-    <state x="727" y="-677" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1592348656892">
+    <state x="727" y="-677" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1592349750103">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
-    <state x="727" y="-677" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592348656892" />
+    <state x="727" y="-677" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/298.-1080.2560.1080/0.0.2048.1280@298.-1080.2560.1080" timestamp="1592349750103" />
     <state x="298" y="-1080" key="FileDocumentManager.FileCacheConflict" timestamp="1592179957946">
       <screen x="298" y="-1080" width="2560" height="1080" />
     </state>
