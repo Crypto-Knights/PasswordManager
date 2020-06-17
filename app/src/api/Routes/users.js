@@ -57,6 +57,9 @@ router.route('/add').post(async (req,res) => {
         const firstName = req.body.firstName;
         const lastName = req.body.lastName;
         const questionOne = req.body.questionOne;
+        if((await User.find({email: email})).length > 0 ) {
+            return res.send(true)
+        }
 
         const newUser = new User ({
             email,
@@ -67,7 +70,7 @@ router.route('/add').post(async (req,res) => {
             answerOne
         });
         newUser.save()
-        .then(() => res.json('User added!'))
+        .then(() => res.send(false))
         .catch(err => res.status(400).json('Error: ' + err));
         // User.push(newUser)
 

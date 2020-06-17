@@ -50,10 +50,17 @@ class Signup extends React.Component {
                 errorMsg: fieldError
             });
         } else {
-            createUser(userObj);
-            this.setState({
-                redirect: true
-            })
+            const error = await createUser(userObj);
+            console.log(error.data)
+            if(error.data) {
+                this.setState({
+                    errorMsg: "user already exists"
+                })
+            } else {
+                this.setState({
+                    redirect: true
+                })
+            }
         }
     };
 
