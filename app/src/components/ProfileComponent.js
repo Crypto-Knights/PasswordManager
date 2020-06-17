@@ -34,6 +34,7 @@ function ProfileComponent(props) {
               <Form.Input
                   icon='lock'
                   iconPosition='left'
+                  label='Password'
                   placeholder='Password'
                   value={props.password}
                   name="password"
