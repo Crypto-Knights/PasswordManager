@@ -4,6 +4,7 @@ let User = require('../Model/user.model');
 const bcrypt = require('bcrypt');
 
 
+// noinspection JSUnresolvedFunction
 router.route('/getQuestion').post((req,res) => {
     const email = req.body.email;
     User.find({email: email})
@@ -11,6 +12,7 @@ router.route('/getQuestion').post((req,res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 });
 
+// noinspection JSUnresolvedFunction
 router.route('/authorizeChange').post(async (req,res) => {
     try {
         const answerOne = req.body.answerOne;
@@ -27,6 +29,7 @@ router.route('/authorizeChange').post(async (req,res) => {
 
 });
 
+// noinspection JSUnresolvedFunction
 router.route('/newPassword').put(async (req,res) => {
     try {
         res.send("hello");
@@ -43,6 +46,7 @@ router.route('/newPassword').put(async (req,res) => {
     }
 });
 
+// noinspection JSUnresolvedFunction
 router.route('/add').post(async (req,res) => {
     try {
         const salt = await bcrypt.genSalt();

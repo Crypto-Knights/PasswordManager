@@ -35,7 +35,8 @@ class Profile extends React.Component {
       redirect: false,
       passwordl: { length: 11, data: "" },
       authorizePassword: '',
-      attempts: 3
+      attempts: 3,
+      errMsg: ""
     };
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -44,7 +45,9 @@ class Profile extends React.Component {
   }
 
 
+  // noinspection JSCheckFunctionSignatures
   async componentDidMount() {
+    try {
     this.createPassword();
     const reqAccountObj = {
       token: localStorage.getItem('userToken')
@@ -54,7 +57,6 @@ class Profile extends React.Component {
         redirect: true
       })
     }
-    try {
       const response = await GetAccountsByEmail(reqAccountObj);
       let accountArray = response.data;
       accountArray.forEach((prop) => prop.show = false);
@@ -82,9 +84,11 @@ class Profile extends React.Component {
       if(tmp.data) {
         const tmpAccount = this.state.data;
         const accountName = data.accountName;
+        // noinspection JSUnresolvedFunction,JSUnresolvedFunction
         const changeShow = _.find(tmpAccount, {accountName: accountName});
         changeShow.show = true;
         const encryptedPassword = changeShow.password;
+        // noinspection JSCheckFunctionSignatures
         changeShow.password = CryptoJS.AES.decrypt(encryptedPassword, 'd6be6e3545ba7ddbe0ca3ccc71075a25d80e58b597ba21a3ebc6d70e6bf6e6428dd20700afda6c519f511253b4b26de2f00d6b8aad6abfc0527f84d5173b6b6a').toString(CryptoJS.enc.Utf8);
         this.setState({
           authorizePassword: '',
@@ -106,17 +110,24 @@ class Profile extends React.Component {
   };
 
   setLength = ({ value }) => {
-    this.setState(({ progress, passwordl }) => ({
+    this.setState(({ passwordl }) => ({
       passwordl: { ...passwordl, length: value }
     }), () => this.createPassword());
   };
 
   async handleLogout() {
-    localStorage.setItem('userToken', '');
-    this.setState({
-      redirect: true,
-      token: ''
-    })
+    try {
+      localStorage.setItem('userToken', '');
+      this.setState({
+        redirect: true,
+        token: ''
+      })
+    } catch(e) {
+      this.setState({
+        errMsg: "did not log out correctly"
+      })
+    }
+
   }
 
   createPassword = () => {
@@ -141,18 +152,25 @@ class Profile extends React.Component {
   }
 
   handleSubmit = async () => {
-    const accountObj = {
-      accountName: this.state.accountName,
-      password: this.state.password,
-      userName: this.state.userName,
-      token: localStorage.getItem('userToken')
-    };
-    createAccount(accountObj)
+    try {
+      const accountObj = {
+        accountName: this.state.accountName,
+        password: this.state.password,
+        userName: this.state.userName,
+        token: localStorage.getItem('userToken')
+      };
+      createAccount(accountObj)
+    } catch (e) {
+      this.setState({
+        errMsg: "Failed to save credentials"
+      })
+    }
   };
 
   handleSort = (clickedColumn) => () => {
     const { column, data, direction } = this.state;
     if (column !== clickedColumn) {
+      // noinspection JSUnresolvedFunction
       this.setState({
         column: clickedColumn,
         data: _.sortBy(data, [clickedColumn]),
@@ -177,6 +195,7 @@ class Profile extends React.Component {
       localStorage.clear();
       return <Redirect to="../"/>
     }
+    // noinspection JSUnresolvedFunction
     return (
         <div>
           <ProfileNavBar
@@ -186,6 +205,13 @@ class Profile extends React.Component {
           <Segment placeholder>
             <Grid columns={2} relaxed='very' stackable>
               <Grid.Column>
+                {
+                  this.state.errMsg ? (
+                      <Message negative>
+                        {this.state.errMsg}
+                      </Message>
+                  ) : null
+                }
                 <ProfileComponent
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

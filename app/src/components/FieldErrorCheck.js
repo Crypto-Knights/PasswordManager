@@ -75,6 +75,7 @@ function FieldErrorCheck(userObj) {
         return CREATE_USER_ERROR_MESSAGES.PASSWORD_MISSING_CHARS
     }
 
+    // noinspection JSValidateTypes
     return null;
 }
 

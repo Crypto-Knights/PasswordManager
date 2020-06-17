@@ -12,8 +12,8 @@ import CheckPassword from "../components/CheckPassword";
 
 class ForgotPassword extends React.Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             questionOne: '',
@@ -32,8 +32,8 @@ class ForgotPassword extends React.Component{
         this.authorizeChange = this.authorizeChange.bind(this);
     }
     async authorizeChange() {
-        const password = {password: this.state.passwordOne}
-        const fieldError = CheckPassword(password)
+        const password = {password: this.state.passwordOne};
+        const fieldError = CheckPassword(password);
         if(this.state.passwordOne !== this.state.passwordTwo) {
             this.setState({
                 errMsg: "The password do not match"

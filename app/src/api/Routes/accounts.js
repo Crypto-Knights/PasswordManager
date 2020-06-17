@@ -5,8 +5,9 @@ const CryptoJS = require('crypto-js');
 const bcrypt = require('bcrypt');
 let User = require('../Model/user.model');
 
+// noinspection JSUnresolvedFunction
 router.post('/reauthorize', async (req, res) => {
-    let email;
+    let email = '';
     jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
         if(err){
             res.sendStatus(403);
@@ -28,24 +29,30 @@ router.post('/reauthorize', async (req, res) => {
 });
 
 
+// noinspection JSUnresolvedFunction
 router.post('/getAccountsByEmail', async (req,res) => {
 
-    let email;
-    jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
-        if(err){
-            res.sendStatus(403);
-        } else {
-            email = authData.name
-        }
-    });
-    Account.find({email: email})
-        .then(accounts => res.send(accounts))
-        .catch(err => res.status(403).json("Error: " + err))
+    try {
+        let email = '';
+        jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
+            if (err) {
+                res.sendStatus(403);
+            } else {
+                email = authData.name
+            }
+        });
+        Account.find({email: email})
+            .then(accounts => res.send(accounts))
+            .catch(err => res.status(403).json("Error: " + err))
+    } catch (e) {
+        res.status(403).json("You must log in first" )
+    }
 });
 
+// noinspection JSUnresolvedFunction
 router.post('/addAccount', async (req,res) => {
     try {
-        let email;
+        let email = '';
         jwt.verify(req.body.token, process.env.ACCESS_TOKEN_SECRET, (err, authData) => {
             if(err){
                 res.sendStatus(403);
